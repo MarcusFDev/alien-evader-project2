@@ -151,6 +151,7 @@ Wireframes:
 - [CSS](https://github.com/MarcusFDev/alien-evader-project2/blob/main/assets/css/style.css)
     - Page styling.
 - [JavaScript](https://github.com/MarcusFDev/alien-evader-project2/blob/main/script.js)
+    - Page user interactivity.
 
 ## Libraries
 
