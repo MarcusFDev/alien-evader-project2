@@ -22,6 +22,7 @@ header {
 /* Pushes Footer down page */
 main {
     flex: 1 0 auto;
+    background-color: whitesmoke;
   }
 
 .game-section {
