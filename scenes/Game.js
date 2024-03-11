@@ -8,6 +8,8 @@ export default class Game extends Phaser.Scene {
     score = 0;
     scoreText;
 
+    cursors
+
     constructor() {
         super('game')
     }
@@ -43,12 +45,12 @@ export default class Game extends Phaser.Scene {
             const x = 800 * i; // Distance between buildings
             const y = Phaser.Math.Between(750, 1050); // Randomized height of buildings
 
-            // Randomly select a platform image
+            // Randomly select a platform image from array
             const randomImage = Phaser.Math.RND.pick(platformImages);
 
             const platform = platforms.create(x, y, randomImage).setScale(0.4);
 
-            // Enable physics for the platform
+            // Enables physics for the platforms
             this.physics.world.enable(platform);
             platform.body.allowGravity = false;
             platform.body.immovable = true;
@@ -58,21 +60,21 @@ export default class Game extends Phaser.Scene {
         const player = this.physics.add.sprite(240, 20, 'alien')
             .setScale(0.1); // Player Character Size
 
-        // Adjust the player's hitbox
+        // Adjusts the player hitbox
         player.body.setSize(player.width * 0.8, player.height * 0.7);
         player.body.setOffset(player.width * 0.1, player.height * 0.1);
 
-        // Set up player physics
+        // Adjusts player physics
         player.body.setGravityY(500);
         player.setBounce(0.2);
 
-        // Add collider between platforms and player
+        // Creates collider between platforms and player
         this.physics.add.collider(platforms, player, () => {
             isOnGround = true;
 
         });
 
-        // Set up player movement
+        // Creates player movement
         const playerSpeed = 100;
         const jumpHeight = 500;
         let isOnGround = true;
@@ -95,10 +97,60 @@ export default class Game extends Phaser.Scene {
             },
         });
 
-        // Display score text
+        // Displays score text
         this.scoreText = this.add.text(16, 16, 'Score: 0', {
             fontSize: '32px',
             fill: '#fff',
+        });
+
+        // Sets up User keyboard control
+        const cursors = this.input.keyboard.createCursorKeys();
+
+        this.input.keyboard.on('keydown-SPACE', () => {
+            if (isOnGround) {
+                player.setVelocityY(-jumpHeight);
+                isOnGround = false;
+            }
+        });
+
+        this.input.keyboard.on('keydown-RIGHT', () => {
+            try {
+                if (cursors.right.isDown) {
+                    player.setVelocityX(playerSpeed * this.speedMultiplier);
+                }
+            } catch (error) {
+                console.error('Error setting player velocity X:', error);
+            }
+        });
+
+        this.input.keyboard.on('keydown-LEFT', () => {
+            try {
+                if (cursors.left.isDown) {
+                    player.setVelocityX(-playerSpeed * this.speedMultiplier);
+                }
+            } catch (error) {
+                console.error('Error setting player velocity X:', error);
+            }
+        });
+
+        this.input.keyboard.on('keyup-RIGHT', () => {
+            try {
+                if (!cursors.left.isDown) {
+                    player.setVelocityX(0);
+                }
+            } catch (error) {
+                console.error('Error setting player velocity X:', error);
+            }
+        });
+
+        this.input.keyboard.on('keyup-LEFT', () => {
+            try {
+                if (!cursors.right.isDown) {
+                    player.setVelocityX(0);
+                }
+            } catch (error) {
+                console.error('Error setting player velocity X:', error);
+            }
         });
     }
 
