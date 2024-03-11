@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alien Evader</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.0/dist/phaser-arcade-physics.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+    <!--Header & Navigation Bar-->
+    <Header>
+        <h1>
+            Alien Evader
+        </h1>
+        <nav>
+            <button>Toggle Mode</button>
+        </nav>
+    </Header>
+
+    <br>
+
+    <!--Main Content-->
+    <main>
+        <!--Game Section-->
+        <section>
+            <div>
+                <button>Start Game!</button>
+            </div>
+            <br>
+            <div>
+                <canvas></canvas>
+            </div>
+            <br>
+            <div>
+                <p>Your Score: <span>0</span></p>
+            </div>
+        </section>
+
+        <br>
+
+        <!--Intructions Section-->
+        <section>
+            <h2>
+                How To Play
+            </h2>
+            <br>
+            <p>
+                <ol>
+                    <li>Use the Right & Left Arrow keys to move.</li>
+                    <li>Press Space to Jump avoid falling.</li>
+                    <li>The longer you last the more points you earn.</li>
+                    <li>Avoid the Alien ship as long as you can!</li>
+                </ol>
+                <br>
+                How high of a score can you get?
+            </p>
+        </section>
+
+        <!--Feedback Form Section-->
+        <section>
+            <h2>
+                Let us know what you think!
+            </h2>
+
+            <form action="">
+
+            </form>
+        </section>
+    </main>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
