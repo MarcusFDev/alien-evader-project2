@@ -5,6 +5,9 @@ export default class Game extends Phaser.Scene {
     /** @type {Phaser.Physics.Arcade.Sprite} */
     player
 
+    score = 0;
+    scoreText;
+
     constructor() {
         super('game')
     }
@@ -91,5 +94,17 @@ export default class Game extends Phaser.Scene {
 
             },
         });
+
+        // Display score text
+        this.scoreText = this.add.text(16, 16, 'Score: 0', {
+            fontSize: '32px',
+            fill: '#fff',
+        });
+    }
+
+    update() {
+        this.score += 1;
+        this.scoreText.setText('Score: ' + this.score);
+
     }
 }
