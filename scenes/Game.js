@@ -33,5 +33,21 @@ export default class Game extends Phaser.Scene {
                 immovable: true,
                 velocityX: -200, // Initial speed of platforms
             });
+
+            // Creates game loop for platforms
+            for (let i = 0; i < 999; ++i) {
+                const x = 800 * i; // Distance between buildings
+                const y = Phaser.Math.Between(750, 1050); // Randomized height of buildings
+
+                // Randomly select a platform image
+                const randomImage = Phaser.Math.RND.pick(platformImages);
+
+                const platform = platforms.create(x, y, randomImage).setScale(0.4);
+
+                // Enable physics for the platform
+                this.physics.world.enable(platform);
+                platform.body.allowGravity = false;
+                platform.body.immovable = true;
+            }
         }
     }
