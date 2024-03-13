@@ -6,21 +6,26 @@ export default class GameOver extends Phaser.Scene {
         super('game-over')
     }
 
-    create() {
-        // The Game Over message
-        const width = this.scale.width
-        const height = this.scale.height
-
-        this.add.text(width * 0.5, height * 0.5, 'Game Over', {
-            fontSize: 50
-                
-        })
-
-    }
-
     preload() {
-        // Loads the game canvas background
+        // Loads the game over background
         this.load.image('gameoverscr', 'assets/images/game-assets/gameover-screen.webp');
 
     }
+
+    create() {
+        // The Game Over image
+        this.add.image(0, 0, 'gameoverscr').setOrigin(0, 0);
+
+        // Add event listener to the button
+        const menuButton = document.querySelector('[data-type="gameMenu-btn"]');
+        menuButton.addEventListener('click', () => {
+            this.startGame();
+            console.log('Detected Main Menu request');
+        });
+    }
+
+    startGame() {
+        console.log('Sending to Main Menu')
+    }
+
 }

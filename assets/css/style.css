@@ -29,7 +29,8 @@ main {
     background-color: bisque;
 }
 
-#start-btn {
+/* Game Start Button styling */
+.start-btn {
     display: inline-block;
     padding: 15px 25px;
     font-size: 24px;
@@ -44,21 +45,50 @@ main {
     box-shadow: 0 9px #999;
 }
 
-#start-btn:hover {
+.start-btn:hover {
     background-color: #3e8e41;
     transition: 0.3s;
 }
 
-#start-btn:active {
+.start-btn:active {
     background-color: #3e8e41;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
 
+/* Game Main Menu Button styling */
+.gameMenu-btn {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.gameMenu-btn:hover {
+    background-color: #3e8e41;
+    transition: 0.3s;
+}
+
+.gameMenu-btn:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+/* Game Instruction section */
 .instruction-section {
     background-color: aquamarine;
 }
 
+/* Site Feedback section */
 .feedback-section {
     background-color: pink;
 }
