@@ -6,8 +6,8 @@ import GameOver from '/scenes/GameOver.js'
 
 export default new Phaser.Game ({
     type: Phaser.CANVAS,
-    width: 1900,
-    height: 1000,
+    width: 1920,
+    height: 1080,
     scene: [Game, GameOver],
     physics: {
         default: 'arcade',
