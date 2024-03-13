@@ -8,12 +8,13 @@ export default class GameStart extends Phaser.Scene {
 
     preload() {
         // Loads the game start background
-        this.load.image('gamestartscr', 'assets/images/game-assets/gamemenu-screen.webp');
+        this.load.image('gamemenuscr', 'assets/images/game-assets/gamemenu-screen.webp');
 
     }
 
     create() {
-        
+        // The Game Menu image
+        this.add.image(0, 0, 'gamemenuscr').setOrigin(0, 0);
     }
 
 }
