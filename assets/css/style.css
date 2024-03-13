@@ -25,6 +25,11 @@ main {
     background-color: whitesmoke;
   }
 
+  /* Class to hide any Element */
+  .hidden {
+    display: none;
+  }
+
 .game-section {
     background-color: bisque;
 }
