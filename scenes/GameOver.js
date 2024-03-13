@@ -16,6 +16,9 @@ export default class GameOver extends Phaser.Scene {
         // The Game Over image
         this.add.image(0, 0, 'gameoverscr').setOrigin(0, 0);
 
+        const gameMenuButton = document.querySelector('[data-type="gameMenu-btn"] .gameMenu-btn');
+        gameMenuButton.classList.remove('hidden');
+
         // Add event listener to the button
         const menuButton = document.querySelector('[data-type="gameMenu-btn"]');
         menuButton.addEventListener('click', () => {
