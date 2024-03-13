@@ -17,4 +17,10 @@ export default class GameOver extends Phaser.Scene {
         })
 
     }
+
+    preload() {
+        // Loads the game canvas background
+        this.load.image('gameoverscr', 'assets/images/game-assets/gameover-screen.webp');
+
+    }
 }
