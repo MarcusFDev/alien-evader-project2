@@ -25,11 +25,6 @@ main {
     background-color: whitesmoke;
   }
 
-  /* Class to hide any Element */
-  .hidden {
-    display: none;
-  }
-
 .game-section {
     background-color: bisque;
 }
@@ -102,4 +97,9 @@ main {
 
 footer {
     background-color: peru;
-}
+}  
+
+/* Class to hide any Element */
+  .hidden {
+    display: none;
+  }
