@@ -27,13 +27,20 @@ export default class Game extends Phaser.Scene {
 
     create() {
 
-        // Add the background image
+        // Hides Start & Menu buttons
+        const startButton = document.querySelector('[data-type="start-btn"]');
+        startButton.classList.add('hidden');
+
+        const gameMenuButton = document.querySelector('[data-type="gameMenu-btn"]');
+        gameMenuButton.classList.add('hidden');
+
+        // Adds the background image
         this.add.image(0, 0, 'skyline').setOrigin(0, 0);
 
         // Creates an array of building platform images
-        const platformImages = ['building1']; // Enables easy implementation of new images
+        const platformImages = ['building1']; // Array for easy implementation of new images
 
-        // Create the platforms group
+        // Creates the platforms group
         const platforms = this.physics.add.group({
             allowGravity: false,
             immovable: true,
@@ -156,6 +163,8 @@ export default class Game extends Phaser.Scene {
             }
         });
 
+
+
     }
 
     update() {
@@ -184,6 +193,7 @@ export default class Game extends Phaser.Scene {
         this.player.setVelocity(0, 0);
 
         // Transition to GameOver,js scene
+        console.log('Game Over detected loading scene...')
         this.scene.start('game-over');
     }
 }
