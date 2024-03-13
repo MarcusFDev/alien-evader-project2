@@ -19,21 +19,22 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
 
     <!-- Phaser JavaScript Framework -->
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.0/dist/phaser-arcade-physics.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.0/dist/phaser.min.js"></script>
+
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
 <body>
     <!-- Header & Navigation Bar -->
-    <Header>
+    <header>
         <h1>
             Alien Evader
         </h1>
         <nav>
             <button>Toggle Mode</button>
         </nav>
-    </Header>
+    </header>
 
     <br>
 
@@ -42,7 +43,7 @@
         <!-- Game Section -->
         <section class="game-section">
 
-            <div data-type="start-btn" >
+            <div data-type="start-btn">
                 <button class="start-btn">Start Game!</button>
             </div>
 
@@ -51,9 +52,7 @@
             </div>
 
             <br>
-            <div>
-                <canvas></canvas>
-            </div>
+            <div id="gameContainer"></div>
 
         </section>
 
@@ -91,6 +90,7 @@
 
     <!-- The Footer -->
     <footer>This is the Footer</footer>
+
 
     <!-- Link to JavaScript for website -->
     <script type="module" src="script.js"></script>
