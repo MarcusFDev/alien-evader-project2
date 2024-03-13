@@ -3,7 +3,7 @@ import Phaser from '../lib/phaser.js'
 export default class Game extends Phaser.Scene {
 
     /** @type {Phaser.Physics.Arcade.Sprite} */
-    player
+    player;
 
     score = 0;
     scoreText;
@@ -57,7 +57,7 @@ export default class Game extends Phaser.Scene {
         }
 
         // Creates the player character
-        const player = this.physics.add.sprite(240, 20, 'alien')
+        let player = this.physics.add.sprite(240, 20, 'alien')
             .setScale(0.1); // Player Character Size
 
         // Adjusts the player hitbox
@@ -67,6 +67,9 @@ export default class Game extends Phaser.Scene {
         // Adjusts player physics
         player.body.setGravityY(500);
         player.setBounce(0.2);
+
+        // Assign player to the class variable
+        this.player = player;
 
         // Creates collider between platforms and player
         this.physics.add.collider(platforms, player, () => {
@@ -152,11 +155,35 @@ export default class Game extends Phaser.Scene {
                 console.error('Error setting player velocity X:', error);
             }
         });
+
     }
 
     update() {
-        this.score += 1;
-        this.scoreText.setText('Score: ' + this.score);
 
+        if (this.player) {
+            this.score += 1;
+            this.scoreText.setText('Score: ' + this.score);
+
+            // If player touches Bottom of Screen, activates Game Over
+            if (this.player.y > this.game.config.height) {
+                this.gameOver();
+            }
+
+            // If player touches Left Screen, activates Game Over
+            if (this.player.x < 0) {
+                this.gameOver();
+            }
+
+        }
+    }
+
+    gameOver() {
+
+        // Stops physics and player movement
+        this.physics.pause();
+        this.player.setVelocity(0, 0);
+
+        // Transition to GameOver,js scene
+        this.scene.start('game-over');
     }
 }
