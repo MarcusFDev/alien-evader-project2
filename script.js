@@ -21,11 +21,11 @@ function initializeGame() {
                 debug: false
             }
         },
-        parent: 'gameContainer' // Specify the parent container for the Phaser canvas
+        parent: 'gameContainer'
     });
 }
 
-// Call the initializeGame function when the DOM content is loaded
+// When DOM content is loaded, activate game
 document.addEventListener('DOMContentLoaded', () => {
     initializeGame();
 });
