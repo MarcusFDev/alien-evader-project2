@@ -48,31 +48,21 @@ main {
     background-image: url('../images/game-assets/play-btn-hover.webp');
 }
 
-/* Game Main Menu Button styling */
+/* Game Menu Button styling */
 .gameMenu-btn {
-    display: inline-block;
-    padding: 15px 25px;
-    font-size: 24px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #04AA6D;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
+    display:flex;
+    width: 300px; 
+    height: 150px;
+    background-image: url('../images/game-assets/menu-btn.webp');
+    background-size: cover;
+    cursor: pointer; 
+    transition: background-image 0.3s ease-in-out, width 0.3s ease-in-out, height 0.3s ease-in-out;
 }
 
 .gameMenu-btn:hover {
-    background-color: #3e8e41;
-    transition: 0.3s;
-}
-
-.gameMenu-btn:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
+    width: 320px;
+    height:170px;
+    background-image: url('../images/game-assets/menu-btn-hover.webp');
 }
 
 #gameContainer {
