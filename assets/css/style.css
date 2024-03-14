@@ -3,7 +3,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-  }
+}
 
 body {
     display: flex;
@@ -23,52 +23,57 @@ header {
 main {
     flex: 1 0 auto;
     background-color: whitesmoke;
-  }
+}
 
 .game-section {
-    display:flex;
+    display: flex;
     padding: 5px;
     background-color: bisque;
 }
 
 /* Game Start Button styling */
 .start-btn {
-    display:flex;
-    width: 300px; 
+    display: flex;
+    position: absolute;
+    width: 300px;
     height: 150px;
     background-image: url('../images/game-assets/play-btn.webp');
     background-size: cover;
-    cursor: pointer; 
+    cursor: pointer;
     transition: background-image 0.3s ease-in-out, width 0.3s ease-in-out, height 0.3s ease-in-out;
 }
 
 .start-btn:hover {
     width: 320px;
-    height:170px;
+    height: 170px;
     background-image: url('../images/game-assets/play-btn-hover.webp');
 }
 
 /* Game Menu Button styling */
 .gameMenu-btn {
-    display:flex;
-    width: 300px; 
+    display: flex;
+    position: absolute;
+    width: 300px;
     height: 150px;
     background-image: url('../images/game-assets/menu-btn.webp');
     background-size: cover;
-    cursor: pointer; 
+    cursor: pointer;
     transition: background-image 0.3s ease-in-out, width 0.3s ease-in-out, height 0.3s ease-in-out;
 }
 
 .gameMenu-btn:hover {
     width: 320px;
-    height:170px;
+    height: 170px;
     background-image: url('../images/game-assets/menu-btn-hover.webp');
 }
 
 #gameContainer {
-    display:flex;
-    border: #6ECC64 5px;
-    padding:10px;
+    display: flex;
+    position: relative;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 
 /* Game Instruction section */
@@ -85,9 +90,9 @@ main {
 
 footer {
     background-color: peru;
-}  
+}
 
 /* Class to hide any Element */
-  .hidden {
+.hidden {
     display: none;
-  }
+}
