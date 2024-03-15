@@ -1,10 +1,10 @@
-import Phaser from '../lib/phaser.js'
+import Phaser from '../scenes/phaser.js'
 
-import GameStart from '../scenes/GameStart.js'
+import GameStart from '../scenes/gamemenu.js'
 
-import Game from '../scenes/Game.js'
+import Game from '../scenes/game.js'
 
-import GameOver from '../scenes/GameOver.js'
+import GameOver from '../scenes/gameover.js'
 
 function initializeGame() {
     return new Phaser.Game({

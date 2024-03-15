@@ -1,9 +1,9 @@
 import Phaser from '../lib/phaser.js'
 
-export default class GameStart extends Phaser.Scene {
+export default class GameMenu extends Phaser.Scene {
 
     constructor() {
-        super('game-start')
+        super('game-menu')
     }
 
     preload() {
@@ -26,7 +26,7 @@ export default class GameStart extends Phaser.Scene {
         // Event listener for Start button
         startButton.addEventListener('click', () => {
         
-            // Moves to Game.js
+            // Moves to game.js
             this.scene.start('game');
         });
     }

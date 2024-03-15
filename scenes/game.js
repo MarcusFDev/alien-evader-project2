@@ -238,7 +238,7 @@ export default class Game extends Phaser.Scene {
         this.physics.pause();
         this.player.setVelocity(0, 0);
 
-        // Transition to GameOver,js scene
+        // Transition to gameover,js scene
         console.log('Game Over detected loading scene...')
         this.scene.start('game-over');
     }

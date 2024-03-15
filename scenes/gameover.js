@@ -27,9 +27,9 @@ export default class GameOver extends Phaser.Scene {
             gameMenuButton.addEventListener('click', () => {
                 console.log('Game Menu request detected')
 
-                // Moves to GameStart.js
+                // Moves to gamemenu.js
                 console.log('Loading Main Menu...')
-                this.scene.start('game-start');
+                this.scene.start('game-menu');
             });
 
         }
