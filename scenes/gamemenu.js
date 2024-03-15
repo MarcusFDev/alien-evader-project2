@@ -1,6 +1,6 @@
 import Phaser from '../lib/phaser.js'
 
-export default class GameMenu extends Phaser.Scene {
+export default class gamemenu extends Phaser.Scene {
 
     constructor() {
         super('game-menu')

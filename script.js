@@ -1,17 +1,17 @@
-import Phaser from '../scenes/phaser.js'
+import Phaser from '/alien-evader-project2/lib/phaser.js'
 
-import GameStart from '../scenes/gamemenu.js'
+import gamemenu from '/alien-evader-project2/scenes/gamemenu.js'
 
-import Game from '../scenes/game.js'
+import game from '/alien-evader-project2/scenes/game.js'
 
-import GameOver from '../scenes/gameover.js'
+import gameover from '/alien-evader-project2/scenes/gameover.js'
 
 function initializeGame() {
     return new Phaser.Game({
         type: Phaser.CANVAS,
         width: 1920,
         height: 1080,
-        scene: [GameStart, Game, GameOver],
+        scene: [gamemenu, game, gameover],
         physics: {
             default: 'arcade',
             arcade: {
