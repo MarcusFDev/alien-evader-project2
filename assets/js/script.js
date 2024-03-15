@@ -1,10 +1,10 @@
-import Phaser from '/alien-evader-project2/lib/phaser.js'
+import Phaser from './lib/phaser.js'
 
-import gamemenu from '/alien-evader-project2/scenes/gamemenu.js'
+import gamemenu from './scenes/gamemenu.js'
 
-import game from '/alien-evader-project2/scenes/game.js'
+import game from './scenes/game.js'
 
-import gameover from '/alien-evader-project2/scenes/gameover.js'
+import gameover from './scenes/gameover.js'
 
 function initializeGame() {
     return new Phaser.Game({
