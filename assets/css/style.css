@@ -125,6 +125,24 @@ main {
     background-image: url('../images/game-assets/restart-btn-hover.webp');
 }
 
+.gameGoBack-btn {
+    display: flex;
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    top: 400px;
+    background-image: url('../images/game-assets/goback-btn.webp');
+    background-size: cover;
+    cursor: pointer;
+    transition: background-image 0.3s ease-in-out, width 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+.gameGoBack-btn:hover {
+    width: 320px;
+    height: 170px;
+    background-image: url('../images/game-assets/goback-btn-hover.webp');
+}
+
 #gameContainer {
     display: flex;
     position: relative;
