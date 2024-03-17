@@ -115,8 +115,36 @@ export default class game extends Phaser.Scene {
 
         // Sets up User keyboard control
         const cursors = this.input.keyboard.createCursorKeys();
+        const keyMap = {
+            'LEFT': ['A', 'LEFT'],
+            'RIGHT': ['D', 'RIGHT']
+        };
 
-        // Event listener to detect for User "Space" key input
+        function handleKeyDown(direction) {
+            return () => {
+                try {
+                    const velocityX = direction === 'LEFT' ? -playerSpeed : playerSpeed;
+                    player.setVelocityX(velocityX * this.speedMultiplier);
+                } catch (error) {
+                    console.error('Error setting player velocity X:', error);
+                }
+            };
+        }
+
+        function handleKeyUp(direction) {
+            return () => {
+                try {
+                    const oppositeKeys = keyMap[direction];
+                    const oppositeKeyDown = oppositeKeys.some(key => cursors[key] && cursors[key].isDown);
+                    if (!oppositeKeyDown) {
+                        player.setVelocityX(0);
+                    }
+                } catch (error) {
+                    console.error('Error setting player velocity X:', error);
+                }
+            };
+        }
+
         this.input.keyboard.on('keydown-SPACE', () => {
             if (isOnGround) {
                 player.setVelocityY(-jumpHeight);
@@ -124,91 +152,12 @@ export default class game extends Phaser.Scene {
             }
         });
 
-        // Event listener to detect for User "Left" arrow key input
-        this.input.keyboard.on('keydown-LEFT', () => {
-            try {
-                player.setVelocityX(-playerSpeed * this.speedMultiplier);
-            } catch (error) {
-                console.error('Error setting player velocity X:', error);
-            }
-        });
-
-        //Event listener to detect for User "A" key input
-
-        this.input.keyboard.on('keydown-A', () => {
-            try {
-                player.setVelocityX(-playerSpeed * this.speedMultiplier);
-            } catch (error) {
-                console.error('Error setting player velocity X:', error);
-            }
-        });
-
-        //Event listener to detect for User "Right" arrow key input
-
-        this.input.keyboard.on('keydown-RIGHT', () => {
-            try {
-                player.setVelocityX(playerSpeed * this.speedMultiplier);
-            } catch (error) {
-                console.error('Error setting player velocity X:', error);
-            }
-        });
-
-        //Event listener to detect for User "D" key input
-
-        this.input.keyboard.on('keydown-D', () => {
-            try {
-                player.setVelocityX(playerSpeed * this.speedMultiplier);
-            } catch (error) {
-                console.error('Error setting player velocity X:', error);
-            }
-        });
-
-        // Stop moving left when "Left" arrow key is released by User
-
-        this.input.keyboard.on('keyup-LEFT', () => {
-            try {
-                if (!cursors.right.isDown && !this.input.keyboard.checkDown(this.input.keyboard.addKey('D'))) {
-                    player.setVelocityX(0);
-                }
-            } catch (error) {
-                console.error('Error setting player velocity X:', error);
-            }
-        });
-
-        // Stop moving left when "A" key is released by User
-
-        this.input.keyboard.on('keyup-A', () => {
-            try {
-                if (!cursors.right.isDown && !this.input.keyboard.checkDown(this.input.keyboard.addKey('D'))) {
-                    player.setVelocityX(0);
-                }
-            } catch (error) {
-                console.error('Error setting player velocity X:', error);
-            }
-        });
-
-        // Stop moving left when "Right" arrow key is released by User
-
-        this.input.keyboard.on('keyup-RIGHT', () => {
-            try {
-                if (!cursors.left.isDown && !this.input.keyboard.checkDown(this.input.keyboard.addKey('A'))) {
-                    player.setVelocityX(0);
-                }
-            } catch (error) {
-                console.error('Error setting player velocity X:', error);
-            }
-        });
-
-        // Stop moving left when "D" key is released by User
-
-        this.input.keyboard.on('keyup-D', () => {
-            try {
-                if (!cursors.left.isDown && !this.input.keyboard.checkDown(this.input.keyboard.addKey('A'))) {
-                    player.setVelocityX(0);
-                }
-            } catch (error) {
-                console.error('Error setting player velocity X:', error);
-            }
+        Object.keys(keyMap).forEach(direction => {
+            const keys = keyMap[direction];
+            keys.forEach(key => {
+                this.input.keyboard.on(`keydown-${key}`, handleKeyDown.call(this, direction));
+                this.input.keyboard.on(`keyup-${key}`, handleKeyUp.call(this, direction));
+            });
         });
 
     }
