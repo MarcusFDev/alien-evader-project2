@@ -34,6 +34,9 @@ export default class game extends Phaser.Scene {
         const gameMenuButton = document.querySelector('[data-type="gameMenu-btn"]');
         gameMenuButton.classList.add('hidden');
 
+        const gameHtpButton = document.querySelector('[data-type="gameHtp-btn"]');
+        gameHtpButton.classList.add('hidden');
+
         // Adds the background image
         this.add.image(0, 0, 'skyline').setOrigin(0, 0);
 
