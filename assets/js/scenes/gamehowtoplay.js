@@ -32,6 +32,9 @@ export default class gamehowtoplay extends Phaser.Scene {
         const gameGoBackButton = document.querySelector('[data-type="gameGoBack-btn"]');
         gameGoBackButton.classList.remove('hidden');
 
+        const howToPlayDiv = document.querySelector('[data-type="howtoplay-list"]');
+        howToPlayDiv.classList.remove('hidden');
+
         // Event listener for Go Back button
         gameGoBackButton.addEventListener('click', () => {
             console.log('Game Menu request detected')

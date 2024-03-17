@@ -26,6 +26,9 @@ export default class gameover extends Phaser.Scene {
         const gameGoBackButton = document.querySelector('[data-type="gameGoBack-btn"]');
         gameGoBackButton.classList.add('hidden');
 
+        const howToPlayDiv = document.querySelector('[data-type="howtoplay-list"]');
+        howToPlayDiv.classList.add('hidden');
+
         const gameMenuButton = document.querySelector('[data-type="gameMenu-btn"]');
         gameMenuButton.classList.remove('hidden');
 
