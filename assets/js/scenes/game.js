@@ -37,6 +37,9 @@ export default class game extends Phaser.Scene {
         const gameHtpButton = document.querySelector('[data-type="gameHtp-btn"]');
         gameHtpButton.classList.add('hidden');
 
+        const gameRestartButton = document.querySelector('[data-type="gameRestart-btn"]');
+        gameRestartButton.classList.add('hidden');
+
         // Adds the background image
         this.add.image(0, 0, 'skyline').setOrigin(0, 0);
 

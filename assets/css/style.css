@@ -75,7 +75,7 @@ main {
     position: absolute;
     width: 300px;
     height: 150px;
-    top: 400px;
+    top: 550px;
     background-image: url('../images/game-assets/menu-btn.webp');
     background-size: cover;
     cursor: pointer;
@@ -112,7 +112,7 @@ main {
     position: absolute;
     width: 300px;
     height: 150px;
-    top: 600px;
+    top: 400px;
     background-image: url('../images/game-assets/restart-btn.webp');
     background-size: cover;
     cursor: pointer;

@@ -26,14 +26,18 @@ export default class gameover extends Phaser.Scene {
         const gameMenuButton = document.querySelector('[data-type="gameMenu-btn"]');
         gameMenuButton.classList.remove('hidden');
 
-        // Event listener for Game Menu button
-        gameMenuButton.addEventListener('click', () => {
-            console.log('Game Menu request detected')
+        const gameRestartButton = document.querySelector('[data-type="gameRestart-btn"]');
+        gameRestartButton.classList.remove('hidden');
 
-            // Moves to gamemenu.js
-            console.log('Loading Main Menu...')
-            this.scene.start('game-menu');
-        });
+        // Event listener for Game Menu button
+        const addButtonClickListener = (button, sceneKey) => {
+            button.addEventListener('click', () => {
+                this.scene.start(sceneKey);
+            });
+        }
+
+        addButtonClickListener(gameMenuButton, 'game-menu');
+        addButtonClickListener(gameRestartButton, 'game');
 
     }
 }

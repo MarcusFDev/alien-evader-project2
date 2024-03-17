@@ -26,6 +26,9 @@ export default class gamemenu extends Phaser.Scene {
         const gameMenuButton = document.querySelector('[data-type="gameMenu-btn"]');
         gameMenuButton.classList.add('hidden');
 
+        const gameRestartButton = document.querySelector('[data-type="gameRestart-btn"]');
+        gameRestartButton.classList.add('hidden');
+
         // Event listener for user clicks on both the Start & How to Play button
         const addButtonClickListener = (button, sceneKey) => {
             button.addEventListener('click', () => {
