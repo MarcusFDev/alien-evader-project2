@@ -130,7 +130,7 @@ main {
     position: absolute;
     width: 300px;
     height: 150px;
-    top: 400px;
+    top: 900px;
     background-image: url('../images/game-assets/goback-btn.webp');
     background-size: cover;
     cursor: pointer;
