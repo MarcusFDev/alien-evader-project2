@@ -2,6 +2,8 @@ import Phaser from './lib/phaser.js'
 
 import gamemenu from './scenes/gamemenu.js'
 
+import gamehowtoplay from './scenes/gamehowtoplay.js'
+
 import game from './scenes/game.js'
 
 import gameover from './scenes/gameover.js'
@@ -11,7 +13,7 @@ function initializeGame() {
         type: Phaser.CANVAS,
         width: 1920,
         height: 1080,
-        scene: [gamemenu, game, gameover],
+        scene: [gamemenu, gamehowtoplay, game, gameover],
         physics: {
             default: 'arcade',
             arcade: {
