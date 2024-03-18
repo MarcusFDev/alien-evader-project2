@@ -130,7 +130,7 @@ main {
     position: absolute;
     width: 300px;
     height: 150px;
-    top: 900px;
+    top: 800px;
     background-image: url('../images/game-assets/goback-btn.webp');
     background-size: cover;
     cursor: pointer;
@@ -143,6 +143,32 @@ main {
     background-image: url('../images/game-assets/goback-btn-hover.webp');
 }
 
+.howtoplay-list {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: whitesmoke;
+    width: 700px;
+    height: 400px;
+    top: 330px;
+    border: 3px solid black;
+    background-image: url('../images/game-assets/howtoplay-div-img.webp');
+    background-size: cover;
+
+}
+
+.howtoplay-list h2 {
+    font-size: 250%;
+}
+
+.howtoplay-list p, ol {
+    font-size: 150%;
+    line-height: 2;
+}
+
+
 #gameContainer {
     display: flex;
     position: relative;
@@ -151,12 +177,6 @@ main {
     align-items: center;
     border: 5px solid black;
     z-index: 100;
-}
-
-/* Game Instruction section */
-.instruction-section {
-    background-color: aquamarine;
-    z-index:100;
 }
 
 /* Site Feedback section */

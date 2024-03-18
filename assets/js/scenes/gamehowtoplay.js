@@ -8,7 +8,7 @@ export default class gamehowtoplay extends Phaser.Scene {
 
     preload() {
         // Loads the game over background
-        this.load.image('gamehtpscr', 'assets/images/game-assets/howtoplay-background.webp');
+        this.load.image('gamehtpscr', 'assets/images/game-assets/howtoplay-scene-img.webp');
 
     }
 
