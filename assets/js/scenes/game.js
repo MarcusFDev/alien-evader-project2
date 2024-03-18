@@ -183,11 +183,9 @@ export default class game extends Phaser.Scene {
             // If player touches Bottom of Screen, activates Game Over
             if (this.player.y > this.game.config.height) {
                 this.gameOver();
-            }
-
-            // If player touches Left Screen, activates Game Over
-            if (this.player.x < 0) {
-                this.gameOver();
+            // If player touches Left Screen, activates Game Over Two   
+            } else if (this.player.x < 0) {
+                this.gameOverTwo();
             }
 
         }
@@ -202,5 +200,16 @@ export default class game extends Phaser.Scene {
         // Transition to gameover,js scene
         console.log('Game Over detected loading scene...')
         this.scene.start('game-over');
+    }
+
+    gameOverTwo() {
+
+        // Stops physics and player movement
+        this.physics.pause();
+        this.player.setVelocity(0, 0);
+
+        // Transition to gameover,js scene
+        console.log('Game Over Two detected loading scene...')
+        this.scene.start('game-over-two');
     }
 }
