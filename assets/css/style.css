@@ -75,7 +75,7 @@ main {
     position: absolute;
     width: 300px;
     height: 150px;
-    top: 550px;
+    top: 650px;
     background-image: url('../images/game-assets/menu-btn.webp');
     background-size: cover;
     cursor: pointer;
@@ -94,7 +94,7 @@ main {
     position: absolute;
     width: 300px;
     height: 150px;
-    top: 600px;
+    top: 650px;
     background-image: url('../images/game-assets/howtoplay-btn.webp');
     background-size: cover;
     cursor: pointer;
@@ -112,7 +112,7 @@ main {
     position: absolute;
     width: 300px;
     height: 150px;
-    top: 400px;
+    top: 520px;
     background-image: url('../images/game-assets/restart-btn.webp');
     background-size: cover;
     cursor: pointer;
@@ -183,6 +183,11 @@ ol {
 
 .gameScore>span {
     color: #C6A6EA;
+}
+
+.gameOverScore {
+    top: 350px;
+    font-size: 60px;
 }
 
 

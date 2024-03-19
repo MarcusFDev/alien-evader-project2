@@ -35,6 +35,11 @@ export default class gamemenu extends Phaser.Scene {
         const howToPlayDiv = document.querySelector('[data-type="howtoplay-list"]');
         howToPlayDiv.classList.add('hidden');
 
+        // Score Div hidden on this scene
+
+        const gameScoring = document.querySelector('[data-type="gameScore"]');
+        gameScoring.classList.add('hidden')
+
         // Event listener for user clicks on both the Start & How to Play button
         const addButtonClickListener = (button, sceneKey) => {
             button.addEventListener('click', () => {

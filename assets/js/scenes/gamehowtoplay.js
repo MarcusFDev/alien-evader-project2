@@ -35,6 +35,11 @@ export default class gamehowtoplay extends Phaser.Scene {
         const howToPlayDiv = document.querySelector('[data-type="howtoplay-list"]');
         howToPlayDiv.classList.remove('hidden');
 
+        // Score Div hidden on this scene
+
+        const gameScoring = document.querySelector('[data-type="gameScore"]');
+        gameScoring.classList.add('hidden')
+
         // Event listener for Go Back button
         gameGoBackButton.addEventListener('click', () => {
             console.log('Game Menu request detected')

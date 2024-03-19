@@ -16,7 +16,6 @@ export default class gameovertwo extends Phaser.Scene {
         // The Game Over image
         this.add.image(0, 0, 'gameovertwoscr').setOrigin(0, 0);
 
-        // Menu button becomes visible & Start button is hidden
         const startButton = document.querySelector('[data-type="start-btn"]');
         startButton.classList.add('hidden');
 
@@ -34,6 +33,14 @@ export default class gameovertwo extends Phaser.Scene {
 
         const gameRestartButton = document.querySelector('[data-type="gameRestart-btn"]');
         gameRestartButton.classList.remove('hidden');
+
+        // Score Div moved on Game Over scenes
+
+        const gameScoring = document.querySelector('[data-type="gameScore"]');
+        gameScoring.classList.add('gameOverScore');
+        gameScoring.classList.remove('hidden');
+
+
 
         // Event listener for Game Menu button
         const addButtonClickListener = (button, sceneKey) => {

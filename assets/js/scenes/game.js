@@ -48,6 +48,12 @@ export default class game extends Phaser.Scene {
         const howToPlayDiv = document.querySelector('[data-type="howtoplay-list"]');
         howToPlayDiv.classList.add('hidden');
 
+        // Score Div shown on this scene
+
+        const gameScoring = document.querySelector('[data-type="gameScore"]');
+        gameScoring.classList.remove('hidden')
+        gameScoring.classList.remove('gameOverScore');
+
         // Adds the background image
         this.add.image(0, 0, 'skyline').setOrigin(0, 0);
 

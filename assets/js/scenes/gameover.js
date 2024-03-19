@@ -35,6 +35,12 @@ export default class gameover extends Phaser.Scene {
         const gameRestartButton = document.querySelector('[data-type="gameRestart-btn"]');
         gameRestartButton.classList.remove('hidden');
 
+        // Score Div moved on Game Over scenes
+
+        const gameScoring = document.querySelector('[data-type="gameScore"]');
+        gameScoring.classList.add('gameOverScore');
+        gameScoring.classList.remove('hidden');
+
         // Event listener for Game Menu button
         const addButtonClickListener = (button, sceneKey) => {
             button.addEventListener('click', () => {
