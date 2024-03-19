@@ -45,6 +45,9 @@ export default class gameovertwo extends Phaser.Scene {
         // Event listener for Game Menu button
         const addButtonClickListener = (button, sceneKey) => {
             button.addEventListener('click', () => {
+
+                // Calls on code in game.js and Resets score upon button press
+                this.scene.get('game').events.emit('resetScore');
                 this.scene.start(sceneKey);
             });
         }

@@ -133,6 +133,12 @@ export default class game extends Phaser.Scene {
             },
         });
 
+        // Creates a Event listener for reset score events
+        this.events.on('resetScore', () => {
+            this.score = 0;
+            document.getElementById('score').textContent = this.score;
+        });
+
         // Sets up User keyboard control
         const cursors = this.input.keyboard.createCursorKeys();
         const keyMap = {
