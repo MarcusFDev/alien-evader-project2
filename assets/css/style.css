@@ -163,9 +163,26 @@ main {
     font-size: 250%;
 }
 
-.howtoplay-list p, ol {
+.howtoplay-list p,
+ol {
     font-size: 150%;
     line-height: 2;
+}
+
+.gameScore {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    font-size: 35px;
+    font-family: "Madimi One", "Rubik", sans-serif;
+    color: #7AD071;
+    top: 16px;
+    
+}
+
+.gameScore>span {
+    color: #C6A6EA;
 }
 
 
@@ -182,14 +199,14 @@ main {
 /* Site Feedback section */
 .feedback-section {
     background-color: pink;
-    z-index:100;
+    z-index: 100;
 }
 
 /* Footer Styling */
 
 footer {
     background-color: peru;
-    z-index:100;
+    z-index: 100;
 }
 
 /* Class to hide any Element */

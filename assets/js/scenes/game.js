@@ -55,6 +55,8 @@ export default class game extends Phaser.Scene {
         const alienShip = this.add.image(-200, 0, 'alienship').setOrigin(0, 0);
         alienShip.setScale(0.5);
 
+        alienShip.setDepth(1);
+
         // Creates an array of building platform images
         const platformImages = ['building1']; // Array for easy implementation of new images
 
@@ -80,8 +82,6 @@ export default class game extends Phaser.Scene {
             platform.body.allowGravity = false;
             platform.body.immovable = true;
         }
-
-        alienShip.setDepth(1);
 
         // Creates the player character
         let player = this.physics.add.sprite(500, 20, 'alien')
@@ -125,12 +125,6 @@ export default class game extends Phaser.Scene {
                 });
 
             },
-        });
-
-        // Displays score text
-        this.scoreText = this.add.text(16, 16, 'Score: 0', {
-            fontSize: '32px',
-            fill: '#fff',
         });
 
         // Sets up User keyboard control
@@ -185,8 +179,9 @@ export default class game extends Phaser.Scene {
     update() {
 
         if (this.player) {
-            this.score += 1;
-            this.scoreText.setText('Score: ' + this.score);
+            const incrementValue = 0.01;
+            this.score += incrementValue;
+            document.getElementById('score').textContent = Math.floor(this.score);
 
             // If player touches Bottom of Screen, activates Game Over
             if (this.player.y > this.game.config.height) {
