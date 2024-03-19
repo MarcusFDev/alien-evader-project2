@@ -169,6 +169,10 @@ ol {
     line-height: 2;
 }
 
+.howtoplay-list span {
+    color:#9457D9;
+}
+
 .gameScore {
     display: flex;
     flex-direction: column;
