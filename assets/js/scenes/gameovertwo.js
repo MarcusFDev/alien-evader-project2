@@ -8,7 +8,7 @@ export default class gameovertwo extends Phaser.Scene {
 
     preload() {
         // Loads the game over background
-        this.load.image('gameovertwoscr', 'assets/images/game-assets/gamemenu-screen.webp');
+        this.load.image('gameovertwoscr', 'assets/images/game-assets/gameovertwo-screen.webp');
 
     }
 

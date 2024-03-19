@@ -21,6 +21,8 @@ export default class game extends Phaser.Scene {
         // Loads the city building platforms
         this.load.image('building1', 'assets/images/game-assets/city-building1.webp');
 
+        this.load.image('alienship', 'assets/images/game-assets/alienship.webp')
+
         // Loads the player character
         this.load.image('alien', 'assets/images/game-assets/player-model.webp');
     }
@@ -49,6 +51,10 @@ export default class game extends Phaser.Scene {
         // Adds the background image
         this.add.image(0, 0, 'skyline').setOrigin(0, 0);
 
+        // Adds the Alien spaceship image
+        const alienShip = this.add.image(-200, 0, 'alienship').setOrigin(0, 0);
+        alienShip.setScale(0.5);
+
         // Creates an array of building platform images
         const platformImages = ['building1']; // Array for easy implementation of new images
 
@@ -75,8 +81,10 @@ export default class game extends Phaser.Scene {
             platform.body.immovable = true;
         }
 
+        alienShip.setDepth(1);
+
         // Creates the player character
-        let player = this.physics.add.sprite(240, 20, 'alien')
+        let player = this.physics.add.sprite(500, 20, 'alien')
             .setScale(0.1); // Player Character Size
 
         // Adjusts the player hitbox
@@ -183,7 +191,7 @@ export default class game extends Phaser.Scene {
             // If player touches Bottom of Screen, activates Game Over
             if (this.player.y > this.game.config.height) {
                 this.gameOver();
-            // If player touches Left Screen, activates Game Over Two   
+                // If player touches Left Screen, activates Game Over Two   
             } else if (this.player.x < 0) {
                 this.gameOverTwo();
             }
