@@ -94,7 +94,7 @@ main {
     position: absolute;
     width: 300px;
     height: 150px;
-    top: 650px;
+    top: 600px;
     background-image: url('../images/game-assets/howtoplay-btn.webp');
     background-size: cover;
     cursor: pointer;
