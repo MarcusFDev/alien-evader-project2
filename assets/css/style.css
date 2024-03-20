@@ -170,7 +170,7 @@ ol {
 }
 
 .howtoplay-list span {
-    color:#9457D9;
+    color: #9457D9;
 }
 
 .gameScore {
@@ -182,7 +182,7 @@ ol {
     font-family: "Madimi One", "Rubik", sans-serif;
     color: #7AD071;
     top: 16px;
-    
+
 }
 
 .gameScore>span {
@@ -192,6 +192,27 @@ ol {
 .gameOverScore {
     top: 350px;
     font-size: 60px;
+}
+
+.audioToggle {
+    position: absolute;
+    top: 90%;
+    left: 95%;
+    
+    
+}
+
+.audio-btn {
+    position: relative;
+    background-color: #08193B;
+    border: 3px solid #4CAF50;
+    color: #C6A6EA;
+    font-size: 180%;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    
 }
 
 

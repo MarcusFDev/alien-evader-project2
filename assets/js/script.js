@@ -33,3 +33,4 @@ function initializeGame() {
 document.addEventListener('DOMContentLoaded', () => {
     initializeGame();
 });
+
