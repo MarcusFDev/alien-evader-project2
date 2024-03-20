@@ -186,6 +186,21 @@ export default class game extends Phaser.Scene {
             });
         });
 
+        const audioOnBtn = document.getElementById("audioOnBtn");
+        const audioOffBtn = document.getElementById("audioOffBtn");
+
+        // Add event listeners to the buttons
+        audioOnBtn.addEventListener("click", function () {
+            // Hide the audioOnBtn and show the audioOffBtn
+            audioOnBtn.classList.add("hidden");
+            audioOffBtn.classList.remove("hidden");
+        });
+
+        audioOffBtn.addEventListener("click", function () {
+            // Hide the audioOffBtn and show the audioOnBtn
+            audioOffBtn.classList.add("hidden");
+            audioOnBtn.classList.remove("hidden");
+        });
     }
 
     update() {
