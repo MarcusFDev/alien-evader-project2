@@ -65,6 +65,5 @@ export default class gamemenu extends Phaser.Scene {
             audioOffBtn.classList.add("hidden");
             audioOnBtn.classList.remove("hidden");
         });
-
     }
 }
