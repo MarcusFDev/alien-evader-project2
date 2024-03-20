@@ -7,7 +7,7 @@ export default class gamemenu extends Phaser.Scene {
 
             this.backgroundMusic = null;
 
-            this.isMuted = false;
+            this.isMuted = true;
         }
 
         preload() {

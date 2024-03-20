@@ -25,6 +25,8 @@ export default class game extends Phaser.Scene {
 
         // Loads the player character
         this.load.image('alien', 'assets/images/game-assets/player-model.webp');
+
+        this.load.audio('playerJump', 'assets/game-audio/playerjump.wav');
     }
 
     create() {
@@ -133,6 +135,10 @@ export default class game extends Phaser.Scene {
             },
         });
 
+
+        // Creates the player jump sound effect
+        this.playerJump = this.sound.add('playerJump');
+
         // Creates a Event listener for reset score events
         this.events.on('resetScore', () => {
             this.score = 0;
@@ -175,6 +181,12 @@ export default class game extends Phaser.Scene {
             if (isOnGround) {
                 player.setVelocityY(-jumpHeight);
                 isOnGround = false;
+
+                // Checks if the jump sound is not muted
+                if (!this.isMuted) {
+                    // Play the jump sound
+                    this.playerJump.play();
+                }
             }
         });
 
