@@ -32,8 +32,6 @@ export default class game extends Phaser.Scene {
 
         // Loads the player character
         this.load.image('alien', 'assets/images/game-assets/player-model.webp');
-
-        this.load.audio('playerJump', 'assets/game-audio/playerjump.wav');
     }
 
     create() {
@@ -73,7 +71,7 @@ export default class game extends Phaser.Scene {
         alienShip.setDepth(1);
 
         // Creates an array of building platform images
-        const platformImages = ['building1','building2','building3','building4','building5','building6', 'building7']; // Array for easy implementation of new images
+        const platformImages = ['building1', 'building2', 'building3', 'building4', 'building5', 'building6', 'building7']; // Array for easy implementation of new images
 
         // Creates the platforms group
         const platforms = this.physics.add.group({
@@ -142,10 +140,6 @@ export default class game extends Phaser.Scene {
             },
         });
 
-
-        // Creates the player jump sound effect
-        this.playerJump = this.sound.add('playerJump');
-
         // Creates a Event listener for reset score events
         this.events.on('resetScore', () => {
             this.score = 0;
@@ -189,11 +183,6 @@ export default class game extends Phaser.Scene {
                 player.setVelocityY(-jumpHeight);
                 isOnGround = false;
 
-                // Checks if the jump sound is not muted
-                if (!this.isMuted) {
-                    // Play the jump sound
-                    this.playerJump.play();
-                }
             }
         });
 
@@ -205,21 +194,23 @@ export default class game extends Phaser.Scene {
             });
         });
 
-        const audioOnBtn = document.getElementById("audioOnBtn");
-        const audioOffBtn = document.getElementById("audioOffBtn");
+        // Set up event listener for jump sound mute/unmute button
+        const jumpAudioToggleBtn = document.querySelector('[data-type="audioToggle"]');
+        jumpAudioToggleBtn.addEventListener('click', () => {
+            this.isJumpMuted = !this.isJumpMuted;
 
-        // Add event listeners to the buttons
-        audioOnBtn.addEventListener("click", function () {
-            // Hide the audioOnBtn and show the audioOffBtn
-            audioOnBtn.classList.add("hidden");
-            audioOffBtn.classList.remove("hidden");
+            // Toggle mute/unmute button visibility
+            const audioOnBtn = document.getElementById("audioOnBtn");
+            const audioOffBtn = document.getElementById("audioOffBtn");
+            if (this.isJumpMuted) {
+                audioOnBtn.classList.add("hidden");
+                audioOffBtn.classList.remove("hidden");
+            } else {
+                audioOffBtn.classList.add("hidden");
+                audioOnBtn.classList.remove("hidden");
+            }
         });
 
-        audioOffBtn.addEventListener("click", function () {
-            // Hide the audioOffBtn and show the audioOnBtn
-            audioOffBtn.classList.add("hidden");
-            audioOnBtn.classList.remove("hidden");
-        });
     }
 
     update() {
@@ -238,6 +229,7 @@ export default class game extends Phaser.Scene {
             }
 
         }
+
     }
 
     gameOver() {
