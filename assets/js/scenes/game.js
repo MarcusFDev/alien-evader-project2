@@ -20,7 +20,14 @@ export default class game extends Phaser.Scene {
 
         // Loads the city building platforms
         this.load.image('building1', 'assets/images/game-assets/city-building1.webp');
+        this.load.image('building2', 'assets/images/game-assets/city-building2.webp');
+        this.load.image('building3', 'assets/images/game-assets/city-building3.webp');
+        this.load.image('building4', 'assets/images/game-assets/city-building4.webp');
+        this.load.image('building5', 'assets/images/game-assets/city-building5.webp');
+        this.load.image('building6', 'assets/images/game-assets/city-building6.webp');
+        this.load.image('building7', 'assets/images/game-assets/city-building7.webp');
 
+        // Loads the alien ship
         this.load.image('alienship', 'assets/images/game-assets/alienship.webp')
 
         // Loads the player character
@@ -66,7 +73,7 @@ export default class game extends Phaser.Scene {
         alienShip.setDepth(1);
 
         // Creates an array of building platform images
-        const platformImages = ['building1']; // Array for easy implementation of new images
+        const platformImages = ['building1','building2','building3','building4','building5','building6', 'building7']; // Array for easy implementation of new images
 
         // Creates the platforms group
         const platforms = this.physics.add.group({
