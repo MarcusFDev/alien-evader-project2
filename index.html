@@ -2,50 +2,47 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Tags for Search Engines -->
     <meta name="description"
-        content="Alien Evader. A simple & fun website game where the user controls a little alien running across buildings in the night.">
-    <meta name="keywords" content="Alien Evader, alien, game, fun, easy, platformer, jumping">
+        content="Alien Evader. A simple & fun website game where the user controls a little alien running across buildings in the night." />
+    <meta name="keywords" content="Alien Evader, alien, game, fun, easy, platformer, jumping" />
 
     <!-- Title of Website-->
     <title>Alien Evader</title>
 
     <!--Favicon-->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png" />
 
     <!-- Phaser JavaScript Framework -->
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.0/dist/phaser.min.js"></script>
 
-    <link rel="stylesheet" href="assets/css/style.css">
-
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body>
-
     <!-- Header & Navigation Bar -->
     <header>
-        <h1>
-            Alien Evader
-        </h1>
+        <h1>Alien Evader</h1>
         <nav>
             <button>Toggle Mode</button>
         </nav>
     </header>
 
-    <img src="assets/images/site-images/night-sky-art.webp" alt="Site Background of a Night Sky" class="background-img">
+    <!--<img src="assets/images/site-images/night-sky-art.webp" alt="Site Background of a Night Sky" class="background-img">-->
 
     <!-- Main Content -->
     <main>
-
         <!-- Game Section -->
         <section class="game-section">
-
             <div id="gameContainer">
+
+                <canvas id="gameCanvas"></canvas>
+                
                 <div data-type="start-btn" class="start-btn"></div>
 
                 <div data-type="gameMenu-btn" class="gameMenu-btn"></div>
@@ -57,49 +54,74 @@
                 <div data-type="gameGoBack-btn" class="gameGoBack-btn"></div>
 
                 <div data-type="gameScore" class="gameScore">
-                    Your Score: <br>
+                    Your Score: <br />
                     <span id="score"> 0</span>
                 </div>
 
                 <div data-type="audioToggle" class="audioToggle">
+                    <button id="audioOnBtn" class="audio-btn hidden">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
 
-                    <button id="audioOnBtn" class="audio-btn hidden"><i class="fa-solid fa-volume-high"></i></button>
-
-                    <button id="audioOffBtn" class="audio-btn"><i class="fa-solid fa-volume-xmark"></i></button>
-                
+                    <button id="audioOffBtn" class="audio-btn">
+                        <i class="fa-solid fa-volume-xmark"></i>
+                    </button>
                 </div>
 
                 <div data-type="howtoplay-list" class="howtoplay-list">
-                    <h2 id="htp-heading">
-                        How To Play
-                    </h2>
-                    <br>
+                    <h2 id="htp-heading">How To Play</h2>
+                    <br />
                     <ol>
-                        <li>Use the <span>A</span> & <span>D</span> or the <span>Right</span> & <span>Left Arrow
-                                keys</span> to
-                            move.</li>
+                        <li>
+                            Use the <span>A</span> & <span>D</span> or the
+                            <span>Right</span> & <span>Left Arrow keys</span> to move.
+                        </li>
                         <li>Press <span>Space</span> to Jump avoid falling.</li>
                         <li>The longer you last the more score you earn.</li>
                         <li>Escape the Alien ship as long as you can!</li>
                     </ol>
-                    <br>
-                    <p>
-                        How high of a <span> score</span> can you get?
-                    </p>
+                    <br />
+                    <p>How high of a <span> score</span> can you get?</p>
                 </div>
             </div>
-
         </section>
 
         <!-- Feedback Form Section -->
         <section class="feedback-section">
-            <h2>
-                Let us know what you think!
-            </h2>
+            <form id="feedback-form" method="POST" action="https://formdump.codeinstitute.net">
+                <h2>Tell us what you think!</h2>
 
-            <form action="">
+                <br />
 
+                <label for="first_name">First Name</label>
+                <input type="text" name="first_name" id="first_name" class="text-input" placeholder="Enter First Name"
+                    required />
+
+                <br />
+
+                <label for="last_name">Last Name</label>
+                <input type="text" name="last_name" id="last_name" class="text-input" placeholder="Enter Last Name"
+                    required />
+
+                <br />
+
+                <label for="email_address">Email Address</label>
+                <input type="email" name="email_address" id="email_address" class="text-input" placeholder="Enter Email"
+                    required />
+
+                <br />
+
+                <label for="user-suggestion">Your Suggestions:</label>
+                <textarea id="user-suggestion" name="user-suggestion" cols="30" rows="10" required></textarea>
+
+                <button type="submit" class="submit-btn">Submit!</button>
             </form>
+
+            <div class="feedbackform-description">
+                <h3>What would you like to see added or changed?</h3>
+                <br />
+                <p>Submit your suggestions</p>
+            </div>
         </section>
     </main>
 

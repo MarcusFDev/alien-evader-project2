@@ -51,6 +51,11 @@ main {
 
 }
 
+#gameCanvas {
+    width: 100%;
+    height: 100%;
+}
+
 /* Game Start Button styling */
 .start-btn {
     display: flex;
@@ -218,6 +223,8 @@ ol {
 
 #gameContainer {
     display: flex;
+    width: 90%;
+    height: auto;
     position: relative;
     margin: auto;
     justify-content: center;
@@ -242,4 +249,13 @@ footer {
 /* Class to hide any Element */
 .hidden {
     display: none;
+}
+
+/* Small screen devices (phones, 430px and below) */
+@media screen and (max-width: 430px) {
+
+    #game-container {
+        width: 100%;
+        height: 100vh;
+    }
 }
