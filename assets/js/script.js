@@ -11,10 +11,13 @@ import gameover from './scenes/gameover.js'
 import gameovertwo from './scenes/gameovertwo.js'
 
 function initializeGame() {
+    const gameWidth = document.getElementById('gameContainer').offsetWidth;
+    const gameHeight = document.getElementById('gameContainer').offsetHeight;
+
     return new Phaser.Game({
         type: Phaser.CANVAS,
-        width: 1920,
-        height: 1080,
+        width: gameWidth,
+        height: gameHeight,
         scene: [gamemenu, gamehowtoplay, game, gameover, gameovertwo],
         physics: {
             default: 'arcade',
@@ -25,7 +28,7 @@ function initializeGame() {
                 debug: false
             }
         },
-        parent: 'gameContainer'
+        canvas: document.getElementById('gameCanvas')
     });
 }
 
@@ -33,4 +36,3 @@ function initializeGame() {
 document.addEventListener('DOMContentLoaded', () => {
     initializeGame();
 });
-
