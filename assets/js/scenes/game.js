@@ -32,6 +32,11 @@ export default class game extends Phaser.Scene {
 
         // Loads the player character
         this.load.image('alien', 'assets/images/game-assets/player-model.webp');
+
+        // Loads Touchscreen arrows
+        this.load.image('jumpButton', 'assets/images/game-assets/up-arrowkey.webp');
+        this.load.image('leftButton', 'assets/images/game-assets/left-arrowkey.webp');
+        this.load.image('rightButton', 'assets/images/game-assets/right-arrowkey.webp');
     }
 
     create() {
@@ -193,6 +198,54 @@ export default class game extends Phaser.Scene {
                 this.input.keyboard.on(`keyup-${key}`, handleKeyUp.call(this, direction));
             });
         });
+
+        // Check screen size
+        const screenWidth = this.scale.width;
+        const screenHeight = this.scale.height;
+
+        if (screenWidth <= 800 && screenHeight <= 600) {
+            // If User screen size is small (Tablet & below), create buttons touch screen buttons
+            const jumpButton = this.add.image(750, 550, 'jumpButton').setInteractive();
+            jumpButton.setScale(0.2);
+            
+
+            const leftButton = this.add.image(50, 550, 'leftButton').setInteractive();
+            leftButton.setScale(0.2);
+            
+
+            const rightButton = this.add.image(150, 550, 'rightButton').setInteractive();
+            rightButton.setScale(0.2);
+            
+
+            // Add touch controls
+            jumpButton.on('pointerdown', () => {
+                if (isOnGround) {
+                    player.setVelocityY(-jumpHeight);
+                    isOnGround = false;
+                }
+            });
+
+            leftButton.on('pointerdown', () => {
+                player.setVelocityX(-playerSpeed * this.speedMultiplier);
+            });
+            leftButton.on('pointerup', () => {
+                if (!rightButton.isDown) {
+                    player.setVelocityX(0);
+                }
+            });
+
+            rightButton.on('pointerdown', () => {
+                player.setVelocityX(playerSpeed * this.speedMultiplier);
+            });
+            rightButton.on('pointerup', () => {
+                if (!leftButton.isDown) {
+                    player.setVelocityX(0);
+                }
+            });
+        } else {
+            // For larger screens (e.g., desktop), no additional buttons are needed
+            // because keyboard controls are available.
+        }
 
         // Set up event listener for jump sound mute/unmute button
         const jumpAudioToggleBtn = document.querySelector('[data-type="audioToggle"]');
