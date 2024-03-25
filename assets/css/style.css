@@ -275,31 +275,39 @@ footer {
         width: 200px;
         height: 100px;
         top: 280px;
-        
-    }
-
-    .start-btn:hover {
-        width: 200px;
-        height: 100px;
     }
 
     .gameHtp-btn {
         width: 200px;
         height: 100px;
         top: 370px;
-        
     }
 
-    .gameHtp-btn:hover {
+    .gameScore {
+        font-size: 25px;
+        top: 16px;
+    }
+
+    .gameOverScore {
+        top: 250px;
+        font-size: 30px;
+    }
+
+    .gameRestart-btn {
         width: 200px;
         height: 100px;
+        top: 330px;
     }
 
+    .gameMenu-btn {
+        width: 200px;
+        height: 100px;
+        top: 420px;
+    }
+    
     .audio-btn {
         right: 50px;
         bottom: 5px;
         font-size: 150%;
-        
-    
     }
 }
