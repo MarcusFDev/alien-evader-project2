@@ -18,7 +18,7 @@ export default class gamemenu extends Phaser.Scene {
         const screenWidth = window.innerWidth;
         const screenHeight = window.innerHeight;
 
-        if (window.innerWidth <= 425) {
+        if (screenWidth <= 560) {
 
             const background = this.add.image(screenWidth / 2, screenHeight / 2, 'gamemenuscrtwo').setOrigin(0.5);
 

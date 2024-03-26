@@ -206,15 +206,15 @@ export default class game extends Phaser.Scene {
         if (screenWidth <= 800 && screenHeight <= 600) {
             // If User screen size is small (Tablet & below), create buttons touch screen buttons
             const jumpButton = this.add.image(750, 550, 'jumpButton').setInteractive();
-            jumpButton.setScale(0.2);
+            jumpButton.setScale(0.1);
             
 
             const leftButton = this.add.image(50, 550, 'leftButton').setInteractive();
-            leftButton.setScale(0.2);
+            leftButton.setScale(0.1);
             
 
             const rightButton = this.add.image(150, 550, 'rightButton').setInteractive();
-            rightButton.setScale(0.2);
+            rightButton.setScale(0.1);
             
 
             // Add touch controls
