@@ -82,7 +82,7 @@ nav a {
 
 nav i {
     text-decoration: none;
-    color:#4CAF50;
+    color: #4CAF50;
 }
 
 nav span {
@@ -93,14 +93,14 @@ nav a:hover {
     background-color: #C9C9C9;
     border-radius: 10px;
     border: 3px solid #8259B0;
-    color:#4C9D44;
+    color: #4C9D44;
 }
 
 .active {
     background-color: #C9C9C9;
     border-radius: 10px;
     border: 3px solid #8259b0;
-    color:#4C9D44;
+    color: #4C9D44;
 }
 
 /* Main Content Styling */
@@ -109,14 +109,17 @@ nav a:hover {
 main {
     flex: 1 0 auto;
     background-color: whitesmoke;
+    background-image: url('../images/site-images/night-sky-art.webp');
+    background-size: cover;
+    background-position: center;
 }
 
 .game-section {
     display: flex;
-    padding: 5px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     z-index: 100;
-    background-color: bisque;
-
+    background-color: #08193B;
 }
 
 #gameCanvas {
@@ -304,13 +307,107 @@ ol {
 #gameCanvas {
     width: 100%;
     height: 100%;
-
 }
 
-/* Site Feedback section */
+/* Feedback Form */
+
 .feedback-section {
-    background-color: pink;
-    z-index: 100;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    padding: 20px;
+    background-color: rgba(229, 229, 229, 0.8);
+}
+
+#feedback-form {
+    padding: 10px;
+    margin-right: 100px;
+    font-size: 150%;
+}
+
+form h2 {
+    color: #08193B;
+    font-size: 200%;
+    margin-bottom: 20px;
+}
+
+.feedback-section label {
+    display: flex;
+    font-size: 125%;
+    font-weight: bold;
+    color: #08193B;
+}
+
+.text-input {
+    color: black;
+    width: 60%;
+    height: 50px;
+    margin: 5px 0 20px 0;
+    border: 2px solid #4c9d44;
+    border-radius: 2px;
+    padding: 0 5px;
+    font-size: 100%;
+}
+
+.text-input:hover {
+    border-color: #08193B;
+}
+
+.user-suggestion {
+    color: black;
+    width: 100%;
+    height: 200px;
+    margin: 5px 0 20px 0;
+    border: 2px solid #4c9d44;
+    border-radius: 2px;
+    padding: 0 5px;
+    font-size: 100%;
+}
+
+.submit-btn {
+    margin-top: 5px;
+    border-radius: 15px;
+    padding: 15px 32px;
+    font-size: 100%;
+    border: 5px solid #4c9d44;
+    color: #C6A6EA;
+    background-color: #08193B;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #C9C9C9;
+    border-color: #08193B;
+    color: #4c9d44;
+}
+
+.feedback-description {
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid #4c9d44;
+    border-radius: 100px;
+    padding: 20px;
+    font-size: 150%;
+    background-color: #08193B;
+    text-align: center;
+    background-image: url('../images/site-images/night-sky-art.webp');
+    background-size: cover;
+    background-position: center center;
+}
+
+.feedback-description h3 {
+    font-size: 300%;
+    color: #C6A6EA;
+}
+
+.feedback-description p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 180%;
+    color: #4c9d44;
 }
 
 /* Footer Styling */
@@ -329,7 +426,7 @@ footer {
 }
 
 #social-media {
-    
+
     text-align: center;
     padding: 10px 10px;
     display: flex;
@@ -340,20 +437,20 @@ footer {
 }
 
 #social-media a {
-    display:flex;
+    display: flex;
     flex-direction: column;
     text-decoration: none;
     color: whitesmoke;
     display: inline-flex;
     align-items: center;
-    padding-top:5px;
+    padding-top: 5px;
 
 }
 
 #social-media i {
-    display:flex;
-    color:#C6A6EA;
-    background-color:#08193B;
+    display: flex;
+    color: #C6A6EA;
+    background-color: #08193B;
     font-size: 250%;
     border: 4px solid #4C9D44;
     border-radius: 15px;
@@ -365,7 +462,7 @@ footer {
     margin-left: 7px;
     padding: 7px;
     font-size: 130%;
-    color:#9457D9;
+    color: #9457D9;
 }
 
 #social-media i:hover {
@@ -375,21 +472,21 @@ footer {
 }
 
 #footer-div {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
-    bottom:0;
+    bottom: 0;
     left: 0;
     width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: #08193B;
-    border:5px solid #4c9d44;
+    border: 5px solid #4c9d44;
 }
 
 #footer-div p {
-    color:#C6A6EA;
+    color: #C6A6EA;
 }
 
 /* Class to hide any Element */
