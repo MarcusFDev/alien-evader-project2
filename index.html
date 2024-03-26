@@ -27,13 +27,17 @@
 <body>
     <!-- Header & Navigation Bar -->
     <header>
-        <h1>Alien Evader</h1>
+        <div id="header-img"></div>
+        <h1><a href="index.html" id="logo">Alien <span>Evader</span></a></h1>
         <nav>
-            <button>Toggle Mode</button>
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> <span id="nav-span">Home</span></a></li>
+                <li><a href="#feedback-section"><i class="fa-solid fa-comment"></i> <span
+                            id="nav-span">Feedback</span></a></li>
+            </ul>
         </nav>
-    </header>
 
-    <!--<img src="assets/images/site-images/night-sky-art.webp" alt="Site Background of a Night Sky" class="background-img">-->
+    </header>
 
     <!-- Main Content -->
     <main>
@@ -87,7 +91,7 @@
         </section>
 
         <!-- Feedback Form Section -->
-        <section class="feedback-section">
+        <section class="feedback-section" id="feedback-section">
             <form id="feedback-form" method="POST" action="https://formdump.codeinstitute.net">
                 <h2>Tell us what you think!</h2>
 
