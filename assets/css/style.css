@@ -23,14 +23,12 @@ header {
     flex-direction: column;
     align-items: center;
     background-color: #e5e5e5;
-    top: 0;
-    left: 0;
     width: 100%;
     border-bottom: 15px solid #08193B;
     z-index: 100;
     background-image: url('../images/site-images/site-header-img.webp');
     background-size: cover;
-    background-position: center
+    background-position: center center;
 
 }
 
@@ -317,6 +315,9 @@ footer {
     padding: 5px;
     box-shadow: 0 -2px 2px #08193B;
     padding-bottom: 70px;
+    background-image: url('../images/site-images/site-header-img.webp');
+    background-size: fit;
+    background-position: center center;
 }
 
 #social-media {
