@@ -37,6 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeGame();
 });
 
+$(document).ready(function() {
+    $('#feedback-form').submit(function(event) {
+        event.preventDefault();
+        validateForm(event);
+    });
+});
+
 function validateForm(event) {
     event.preventDefault();
 
@@ -55,7 +62,9 @@ function validateForm(event) {
     if (isValid) {
         // If all fields are filled in, this will send user to thankyou.html
         window.location.href = "thankyou.html";
+        console.log('This triggers if form is validated')
     }
 
     return isValid;
+    
 }
