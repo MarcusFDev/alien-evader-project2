@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeGame();
 });
 
-$(document).ready(function() {
-    $('#feedback-form').submit(function(event) {
+$(document).ready(function () {
+    $('#feedback-form').submit(function (event) {
         event.preventDefault();
         validateForm(event);
     });
@@ -66,5 +66,6 @@ function validateForm(event) {
     }
 
     return isValid;
-    
+
 }
+

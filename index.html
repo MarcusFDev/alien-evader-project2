@@ -20,7 +20,7 @@
 
     <!-- Phaser JavaScript Framework -->
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.0/dist/phaser.min.js"></script>
-
+    <!-- JQuery JavaScript Framework-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -94,31 +94,33 @@
         <!-- Feedback Form Section -->
         <section class="feedback-section" id="feedback-section">
 
-            <form id="feedback-form" method="POST" action="https://formdump.codeinstitute.net" onsubmit="return validateForm(event)">
+            <form id="feedback-form" method="POST" action="https://formdump.codeinstitute.net"
+                onsubmit="return validateForm(event)">
                 <h2>Tell us what you think!</h2>
 
                 <br />
 
                 <label for="first_name">First Name</label>
-                <input type="text" name="first_name" id="first_name" class="text-input" data-type="text" placeholder="Enter First Name"
-                    required />
+                <input type="text" name="first_name" id="first_name" class="text-input" data-type="text"
+                    placeholder="Enter First Name" required />
 
                 <br />
 
                 <label for="last_name">Last Name</label>
-                <input type="text" name="last_name" id="last_name" class="text-input" data-type="text" placeholder="Enter Last Name"
-                    required />
+                <input type="text" name="last_name" id="last_name" class="text-input" data-type="text"
+                    placeholder="Enter Last Name" required />
 
                 <br />
 
                 <label for="email_address">Email Address</label>
-                <input type="email" name="email_address" id="email_address" class="text-input" data-type="email" placeholder="Enter Email"
-                    required />
+                <input type="email" name="email_address" id="email_address" class="text-input" data-type="email"
+                    placeholder="Enter Email" required />
 
                 <br />
 
                 <label for="user-suggestion">Your Suggestions:</label>
-                <textarea id="user-suggestion" class="user-suggestion" name="user-suggestion" cols="30" rows="10" data-type="textarea" placeholder="I would like to see..." required></textarea>
+                <textarea id="user-suggestion" class="user-suggestion" name="user-suggestion" cols="30" rows="10"
+                    data-type="textarea" placeholder="I would like to see..." required></textarea>
 
                 <button type="submit" class="submit-btn">Submit!</button>
 

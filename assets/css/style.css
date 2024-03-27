@@ -541,6 +541,10 @@ form h2 {
     display: inline-block;
 }
 
+#thankyou-section span {
+    color:#C6A6EA;
+}
+
 #thankyou-section i {
     color: #4c9d44;
 }
