@@ -415,7 +415,7 @@ form h2 {
 
 #feedback-img {
     margin-top: 100px;
-    width:100%;
+    width: 100%;
     height: 400px;
     background-image: url('../images/site-images/site-alien.webp');
     background-size: contain;
@@ -443,22 +443,22 @@ form h2 {
     width: 35%;
     height: 430px;
     padding: 25px;
-  }
-  
-  .support-message {
+}
+
+.support-message {
     font-size: 70%;
-  }
-  
-  .support-message span {
+}
+
+.support-message span {
     color: #08193B;
-  }
-  
-  #error-page-section h2 {
+}
+
+#error-page-section h2 {
     color: #9457D9;
     padding-bottom: 20px;
-  }
-  
-  #error-page-section a {
+}
+
+#error-page-section a {
     text-decoration: none;
     color: #C6A6EA;
     padding: 10px 20px;
@@ -468,17 +468,17 @@ form h2 {
     background-color: #08193B;
     transition: background-color 0.3s ease;
     display: inline-block;
-  }
+}
 
-  #error-page-section i {
-    color:#4c9d44;
-  }
-  
-  #error-page-section a:hover {
+#error-page-section i {
+    color: #4c9d44;
+}
+
+#error-page-section a:hover {
     color: #4c9d44;
     background-color: #C9C9C9;
-    border-color:#08193B;
-  }
+    border-color: #08193B;
+}
 
 /* Footer Styling */
 
@@ -567,16 +567,37 @@ footer {
 /* Small screen devices (phones, 425px and below) */
 @media screen and (max-width: 425px) {
 
+    header {
+        text-align: center;
+    }
+
+    header h1 {
+        padding-top: 5px;
+        font-size: 500%;
+        margin-bottom: 10px;
+    }
+
+    nav {
+        font-size: 150%;
+        padding: 7px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    nav li {
+        margin: 5px;
+    }
+
+    nav a {
+        padding: 5px;
+        font-size: 100%;
+    }
+
     #gameContainer {
         display: flex;
         width: 95vw;
         height: 80vh;
     }
-
-    /*#gameCanvas {
-        width: 100%;
-        height: 100%;
-    }*/
 
     .start-btn {
         width: 200px;
