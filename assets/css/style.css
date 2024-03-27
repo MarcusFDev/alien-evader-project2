@@ -564,10 +564,10 @@ footer {
     display: none;
 }
 
-/* Small screen devices (phones, 425px and below) */
-@media screen and (max-width: 425px) {
+/* Small screen devices (phones, 430px and below) */
+@media screen and (max-width: 430px) {
 
-    /* Header & Nav styling for Mobile screens (425px and below) */
+    /* Header & Nav styling for Mobile screens (430px and below) */
 
     header {
         text-align: center;
@@ -595,7 +595,7 @@ footer {
         font-size: 100%;
     }
 
-    /* Game styling for Mobile screens (425px and below) */
+    /* Game styling for Mobile screens (430px and below) */
 
     #gameContainer {
         display: flex;
@@ -643,7 +643,7 @@ footer {
         font-size: 150%;
     }
 
-    /* Feedback section styling for Mobile screens (425px and below) */
+    /* Feedback section styling for Mobile screens (430px and below) */
 
     .feedback-section {
         flex-direction: column-reverse;
@@ -651,13 +651,13 @@ footer {
 
     #feedback-form {
         margin: 0;
-        display:flex;
+        display: flex;
         flex-direction: column;
         align-items: center;
     }
 
     form h2 {
-        text-align:center;
+        text-align: center;
         font-size: 200%;
         margin-top: 20px;
         margin-bottom: 10px;
@@ -673,7 +673,7 @@ footer {
     }
 
     .user-suggestion {
-       text-align: center;
+        text-align: center;
     }
 
     .feedback-description {
@@ -700,7 +700,7 @@ footer {
         height: 400px;
     }
 
-    /* Footer styling for Mobile screens (425px and below) */
+    /* Footer styling for Mobile screens (430px and below) */
 
     #social-media {
         padding-top: 0;
@@ -709,4 +709,10 @@ footer {
     #social-media a span {
         display: none;
     }
+}
+
+/* Medium screen devices (tablets, etc between 431px and 768px width) */
+@media screen and (max-width: 768px) and (min-width:431px) {
+
+    
 }
