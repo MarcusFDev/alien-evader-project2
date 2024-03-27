@@ -637,6 +637,35 @@ footer {
         top: 420px;
     }
 
+    .gameGoBack-btn {
+        width: 200px;
+        height: 100px;
+        top: 500px;
+    }
+
+    .howtoplay-list {
+        width: 95%;
+        height: 300px;
+        text-align: center;
+        justify-content: center;
+        top: 200px;
+        
+    }
+
+    .howtoplay-list h2 {
+        font-size: 160%;
+    }
+
+    .howtoplay-list p,
+    ol {
+        font-size: 85%;
+    }
+
+    .howtoplay-list ol li {
+        text-align: center;
+        list-style-position: inside;
+    }
+
     .audio-btn {
         right: 50px;
         bottom: 5px;
@@ -753,13 +782,13 @@ footer {
     .start-btn {
         width: 200px;
         height: 100px;
-        top: 190px;
+        top: 290px;
     }
 
     .gameHtp-btn {
         width: 200px;
         height: 100px;
-        top: 270px;
+        top: 380px;
     }
 
     .gameScore {
@@ -775,20 +804,42 @@ footer {
     .gameRestart-btn {
         width: 200px;
         height: 100px;
-        top: 190px;
+        top: 290px;
     }
 
     .gameMenu-btn {
         width: 200px;
         height: 100px;
-        top: 270px;
+        top: 380px;
+    }
+
+    .gameGoBack-btn {
+        width: 200px;
+        height: 100px;
+        top: 530px;
+    }
+
+    .howtoplay-list {
+        width: 80%;
+        height: 300px;
+        top: 220px;
+        background-position: 0 -25px;
+    }
+
+    .howtoplay-list h2 {
+        font-size: 220%;
+    }
+
+    .howtoplay-list p,
+    ol {
+        font-size: 120%;
     }
 
     .audio-btn {
         top: -20px;
-        right: 25px;
+        right: 30px;
         bottom: 5px;
-        font-size: 100%;
+        font-size: 150%;
     }
 
     /* Feedback section styling for Tablet screens (Between 431px to 768px) */
@@ -906,25 +957,27 @@ footer {
     }
 
     .gameGoBack-btn {
-        width: 300px;
-        height: 150px;
+        width: 200px;
+        height: 100px;
         top: 520px;
     }
-    
+
     .howtoplay-list {
+    
         width: 600px;
         height: 300px;
         top: 220px;
         background-position: 0 -30px;
     }
-    
+
     .howtoplay-list h2 {
         font-size: 220%;
     }
-    
+
     .howtoplay-list p,
     ol {
         font-size: 120%;
+        line-height: 2;
     }
 
     .audio-btn {
