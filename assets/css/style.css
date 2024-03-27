@@ -423,6 +423,63 @@ form h2 {
     background-position: center;
 }
 
+/* 404.html styles */
+
+#error-page-section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    font-size: 190%;
+    background-color: #e5e5e5;
+    background-image: url('../images/site-images/site-header-img.webp');
+    background-size: fit;
+    background-position: center center;
+    border: 10px solid #08193B;
+    box-shadow: 0 2px 2px #08193B;
+    border-radius: 20px;
+    margin: 300px auto;
+    width: 35%;
+    height: 430px;
+    padding: 25px;
+  }
+  
+  .support-message {
+    font-size: 70%;
+  }
+  
+  .support-message span {
+    color: #08193B;
+  }
+  
+  #error-page-section h2 {
+    color: #9457D9;
+    padding-bottom: 20px;
+  }
+  
+  #error-page-section a {
+    text-decoration: none;
+    color: #C6A6EA;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: 3px solid #4c9d44;
+    border-radius: 10px;
+    background-color: #08193B;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+  }
+
+  #error-page-section i {
+    color:#4c9d44;
+  }
+  
+  #error-page-section a:hover {
+    color: #4c9d44;
+    background-color: #C9C9C9;
+    border-color:#08193B;
+  }
+
 /* Footer Styling */
 
 /* Footer inspired and edited from "Love Running" by Code Institute */
