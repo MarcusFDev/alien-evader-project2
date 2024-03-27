@@ -567,6 +567,8 @@ footer {
 /* Small screen devices (phones, 425px and below) */
 @media screen and (max-width: 425px) {
 
+    /* Header & Nav styling for Mobile screens (425px and below) */
+
     header {
         text-align: center;
     }
@@ -592,6 +594,8 @@ footer {
         padding: 5px;
         font-size: 100%;
     }
+
+    /* Game styling for Mobile screens (425px and below) */
 
     #gameContainer {
         display: flex;
@@ -637,5 +641,14 @@ footer {
         right: 50px;
         bottom: 5px;
         font-size: 150%;
+    }
+
+    /* Footer styling for Mobile screens (425px and below) */
+
+    #social-media {
+        padding-top: 0;
+    }
+    #social-media a span {
+        display: none;
     }
 }
