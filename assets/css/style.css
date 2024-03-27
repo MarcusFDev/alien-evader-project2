@@ -714,5 +714,148 @@ footer {
 /* Medium screen devices (tablets, etc between 431px and 768px width) */
 @media screen and (max-width: 768px) and (min-width:431px) {
 
-    
+    /* Header & Nav styling for Tablet screens (Between 431px to 768px) */
+
+    header {
+        text-align: center;
+    }
+
+    header h1 {
+        padding-top: 5px;
+        font-size: 700%;
+        margin-bottom: 10px;
+    }
+
+    nav {
+        font-size: 170%;
+        padding: 7px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    nav li {
+        margin: 5px;
+    }
+
+    nav a {
+        padding: 5px;
+        font-size: 100%;
+    }
+
+    /* Game styling for Tablet screens (Between 431px to 768px) */
+
+    #gameContainer {
+        display: flex;
+        width: 95vw;
+        height: 80vh;
+    }
+
+    .start-btn {
+        width: 200px;
+        height: 100px;
+        top: 190px;
+    }
+
+    .gameHtp-btn {
+        width: 200px;
+        height: 100px;
+        top: 270px;
+    }
+
+    .gameScore {
+        font-size: 25px;
+        top: 16px;
+    }
+
+    .gameOverScore {
+        top: 300px;
+        font-size: 30px;
+    }
+
+    .gameRestart-btn {
+        width: 200px;
+        height: 100px;
+        top: 190px;
+    }
+
+    .gameMenu-btn {
+        width: 200px;
+        height: 100px;
+        top: 270px;
+    }
+
+    .audio-btn {
+        top: -20px;
+        right: 25px;
+        bottom: 5px;
+        font-size: 100%;
+    }
+
+    /* Feedback section styling for Tablet screens (Between 431px to 768px) */
+
+    .feedback-section {
+        flex-direction: column-reverse;
+    }
+
+    #feedback-form {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form h2 {
+        text-align: center;
+        font-size: 200%;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .feedback-section label {
+        font-size: 115%;
+    }
+
+    .text-input {
+        text-align: center;
+        width: 70%;
+    }
+
+    .user-suggestion {
+        text-align: center;
+        width: 90%;
+    }
+
+    .feedback-description {
+        width: 100%;
+        border-radius: 50px;
+        padding: 15px;
+        font-size: 140%;
+        background-color: #08193B;
+        text-align: center;
+    }
+
+    .feedback-description h3 {
+        font-size: 280%;
+    }
+
+    .feedback-description p {
+        margin-top: 10px;
+        font-size: 160%;
+    }
+
+    #feedback-img {
+        margin-top: 40px;
+        width: 100%;
+        height: 400px;
+    }
+
+    /* Footer styling for Tablet screens (Between 431px to 768px) */
+
+    #social-media {
+        padding-top: 0;
+    }
+
+    #social-media a span {
+        display: none;
+    }
 }
