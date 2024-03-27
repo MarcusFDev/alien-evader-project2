@@ -860,8 +860,111 @@ footer {
     }
 }
 
-/* Medium screen devices (Laptops, etc between 431px and 768px width) */
+/* Medium screen devices (Laptops, etc between 769px and 1440px width) */
 @media screen and (max-width: 1440px) and (min-width:769px) {
 
+    /* Game styling for Laptop screens (Between 769px to 1440px) */
 
+    #gameContainer {
+        display: flex;
+        width: 95vw;
+        height: 80vh;
+    }
+
+    .start-btn {
+        width: 200px;
+        height: 100px;
+        top: 320px;
+    }
+
+    .gameHtp-btn {
+        width: 200px;
+        height: 100px;
+        top: 420px;
+    }
+
+    .gameScore {
+        font-size: 25px;
+        top: 16px;
+    }
+
+    .gameOverScore {
+        top: 300px;
+        font-size: 30px;
+    }
+
+    .gameRestart-btn {
+        width: 200px;
+        height: 100px;
+        top: 320px;
+    }
+
+    .gameMenu-btn {
+        width: 200px;
+        height: 100px;
+        top: 420px;
+    }
+
+    .gameGoBack-btn {
+        width: 300px;
+        height: 150px;
+        top: 520px;
+    }
+    
+    .howtoplay-list {
+        width: 600px;
+        height: 300px;
+        top: 220px;
+        background-position: 0 -30px;
+    }
+    
+    .howtoplay-list h2 {
+        font-size: 220%;
+    }
+    
+    .howtoplay-list p,
+    ol {
+        font-size: 120%;
+    }
+
+    .audio-btn {
+        top: -20px;
+        right: 25px;
+        bottom: 5px;
+        font-size: 150%;
+    }
+
+    /* Feedback section styling for Laptops (Between 769px and 1440px width)*/
+
+    #feedback-form {
+        margin: 30px;
+    }
+
+    .feedback-description {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100px;
+        padding: 20px;
+        font-size: 150%;
+        text-align: center;
+    }
+
+    .feedback-description h3 {
+        font-size: 300%;
+    }
+
+    .feedback-description p {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 180%;
+    }
+
+    #feedback-img {
+        margin-top: 0;
+        width: 100%;
+        height: 400px;
+    }
 }
