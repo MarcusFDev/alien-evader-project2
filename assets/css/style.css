@@ -564,7 +564,7 @@ footer {
     display: none;
 }
 
-/* Small screen devices (phones, 430px and below) */
+/* Very Small screen devices (phones, 430px and below) */
 @media screen and (max-width: 430px) {
 
     /* Header & Nav styling for Mobile screens (430px and below) */
@@ -711,7 +711,7 @@ footer {
     }
 }
 
-/* Medium screen devices (tablets, etc between 431px and 768px width) */
+/* Small screen devices (tablets, etc between 431px and 768px width) */
 @media screen and (max-width: 768px) and (min-width:431px) {
 
     /* Header & Nav styling for Tablet screens (Between 431px to 768px) */
@@ -858,4 +858,10 @@ footer {
     #social-media a span {
         display: none;
     }
+}
+
+/* Medium screen devices (Laptops, etc between 431px and 768px width) */
+@media screen and (max-width: 1440px) and (min-width:769px) {
+
+
 }
