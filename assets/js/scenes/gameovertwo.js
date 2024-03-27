@@ -36,6 +36,12 @@ export default class gameovertwo extends Phaser.Scene {
 
             const gameRestartButton = document.querySelector('[data-type="gameRestart-btn"]');
             gameRestartButton.classList.remove('hidden');
+
+            const gameScoreElement = document.querySelector('[data-type="gameScore"]');
+
+            gameScoreElement.classList.remove('hidden');
+            gameScoreElement.classList.add('gameOverScore');
+
         } else {
             const startButton = document.querySelector('[data-type="start-btn"]');
             startButton.classList.add('hidden');
@@ -54,6 +60,11 @@ export default class gameovertwo extends Phaser.Scene {
 
             const gameRestartButton = document.querySelector('[data-type="gameRestart-btn"]');
             gameRestartButton.classList.remove('hidden');
+
+            const gameScoreElement = document.querySelector('[data-type="gameScore"]');
+
+            gameScoreElement.classList.remove('hidden');
+            gameScoreElement.classList.add('gameOverScore');
         }
 
         const addButtonClickListener = (button, sceneKey) => {

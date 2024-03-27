@@ -31,11 +31,24 @@ export default class gameover extends Phaser.Scene {
             const howToPlayDiv = document.querySelector('[data-type="howtoplay-list"]');
             howToPlayDiv.classList.add('hidden');
 
+            //const gameScoring = document.querySelector('[data-type="gameScore"]');
+            //gameScoring.classList.remove('hidden')
+
             const gameMenuButton = document.querySelector('[data-type="gameMenu-btn"]');
             gameMenuButton.classList.remove('hidden');
 
             const gameRestartButton = document.querySelector('[data-type="gameRestart-btn"]');
             gameRestartButton.classList.remove('hidden');
+
+            // Find the gameScore element
+            const gameScoreElement = document.querySelector('[data-type="gameScore"]');
+
+            // Remove the 'hidden' class and add the 'gameOverScore' class
+            gameScoreElement.classList.remove('hidden');
+            gameScoreElement.classList.add('gameOverScore');
+
+
+
         } else {
             const startButton = document.querySelector('[data-type="start-btn"]');
             startButton.classList.add('hidden');
@@ -54,6 +67,11 @@ export default class gameover extends Phaser.Scene {
 
             const gameRestartButton = document.querySelector('[data-type="gameRestart-btn"]');
             gameRestartButton.classList.remove('hidden');
+
+            const gameScoreElement = document.querySelector('[data-type="gameScore"]');
+
+            gameScoreElement.classList.remove('hidden');
+            gameScoreElement.classList.add('gameOverScore');
         }
 
         const addButtonClickListener = (button, sceneKey) => {
