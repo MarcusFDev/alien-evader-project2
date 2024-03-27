@@ -480,6 +480,77 @@ form h2 {
     border-color: #08193B;
 }
 
+/* thankyou.html styles */
+
+#thankyou-section {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    padding: 20px;
+    background-color: rgba(229, 229, 229, 0.8);
+}
+
+#thankyou-message {
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 10px solid #4c9d44;
+    border-radius: 25px;
+    padding: 20px;
+    font-size: 150%;
+    background-color: #08193B;
+    text-align: center;
+    background-image: url('../images/site-images/night-sky-art.webp');
+    background-size: cover;
+    background-position: center center;
+}
+
+#thankyou-message h3 {
+    font-size: 300%;
+    color: #C6A6EA;
+}
+
+#thankyou-message p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 150%;
+    color: #4c9d44;
+}
+
+#thankyou-img {
+    margin-top: 100px;
+    width: 100%;
+    height: 400px;
+    background-image: url('../images/site-images/site-alien.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#thankyou-section a {
+    text-decoration: none;
+    color: #C6A6EA;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: 3px solid #4c9d44;
+    border-radius: 10px;
+    background-color: #08193B;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+#thankyou-section i {
+    color: #4c9d44;
+}
+
+#thankyou-section a:hover {
+    color: #4c9d44;
+    background-color: #C9C9C9;
+    border-color: #08193B;
+}
+
 /* Footer Styling */
 
 /* Footer inspired and edited from "Love Running" by Code Institute */
@@ -1037,7 +1108,7 @@ footer {
     }
 
     /* 404.html styling for Laptop screens (Between 769px and 1440px width) */
-    
+
     #error-page-section {
         font-size: 150%;
         margin: 45px auto;
