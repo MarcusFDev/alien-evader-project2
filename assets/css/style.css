@@ -643,11 +643,69 @@ footer {
         font-size: 150%;
     }
 
+    /* Feedback section styling for Mobile screens (425px and below) */
+
+    .feedback-section {
+        flex-direction: column-reverse;
+    }
+
+    #feedback-form {
+        margin: 0;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form h2 {
+        text-align:center;
+        font-size: 200%;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .feedback-section label {
+        font-size: 115%;
+    }
+
+    .text-input {
+        text-align: center;
+        width: 90%;
+    }
+
+    .user-suggestion {
+       text-align: center;
+    }
+
+    .feedback-description {
+        width: 100%;
+        border-radius: 50px;
+        padding: 15px;
+        font-size: 140%;
+        background-color: #08193B;
+        text-align: center;
+    }
+
+    .feedback-description h3 {
+        font-size: 280%;
+    }
+
+    .feedback-description p {
+        margin-top: 10px;
+        font-size: 160%;
+    }
+
+    #feedback-img {
+        margin-top: 40px;
+        width: 100%;
+        height: 400px;
+    }
+
     /* Footer styling for Mobile screens (425px and below) */
 
     #social-media {
         padding-top: 0;
     }
+
     #social-media a span {
         display: none;
     }
