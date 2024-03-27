@@ -36,3 +36,26 @@ function initializeGame() {
 document.addEventListener('DOMContentLoaded', () => {
     initializeGame();
 });
+
+function validateForm(event) {
+    event.preventDefault();
+
+    var formElements = document.getElementById("feedback-form").elements;
+    var isValid = true;
+
+    for (var i = 0; i < formElements.length; i++) {
+        var element = formElements[i];
+        if (element.dataset.type && element.value.trim() === "") {
+            alert("Please fill out all available fields");
+            isValid = false;
+            break;
+        }
+    }
+
+    if (isValid) {
+        // If all fields are filled in, this will send user to thankyou.html
+        window.location.href = "thankyou.html";
+    }
+
+    return isValid;
+}
