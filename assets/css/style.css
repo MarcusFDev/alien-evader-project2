@@ -807,6 +807,39 @@ footer {
         width: 95%;
     }
 
+    /* thankyou.html styling for Mobile screens (430px and below) */
+
+    #thankyou-section {
+        width: 100vw;
+        padding: 20px;
+    }
+
+    #thankyou-message {
+        width: 100%;
+        border: 5px solid #4c9d44;
+        border-radius: 25px;
+        padding: 20px;
+        font-size: 130%;
+    }
+
+    #thankyou-message h3 {
+        font-size: 300%;
+    }
+
+    #thankyou-message p {
+        margin-top: 10px;
+        font-size: 140%;
+        color: #4c9d44;
+    }
+
+    #thankyou-img {
+        margin-top: 10px;
+    }
+
+    #thankyou-section a {
+        font-size: 120%;
+    }
+
     /* Footer styling for Mobile screens (430px and below) */
 
     #social-media {
@@ -986,6 +1019,39 @@ footer {
         width: 70%;
     }
 
+    /* thankyou.html styling for Tablet screens (Between 431px to 768px) */
+
+    #thankyou-section {
+        width: 100vw;
+        padding: 20px;
+    }
+
+    #thankyou-message {
+        width: 100%;
+        border: 5px solid #4c9d44;
+        border-radius: 25px;
+        padding: 20px;
+        font-size: 130%;
+    }
+
+    #thankyou-message h3 {
+        font-size: 300%;
+    }
+
+    #thankyou-message p {
+        margin-top: 10px;
+        font-size: 140%;
+        color: #4c9d44;
+    }
+
+    #thankyou-img {
+        margin-top: 10px;
+    }
+
+    #thankyou-section a {
+        font-size: 120%;
+    }
+
     /* Footer styling for Tablet screens (Between 431px to 768px) */
 
     #social-media {
@@ -1113,5 +1179,38 @@ footer {
         font-size: 150%;
         margin: 45px auto;
         width: 60%;
+    }
+
+    /* thankyou.html styling for Laptop screens (Between 769px to 1440px) */
+
+    #thankyou-section {
+        width: 100vw;
+        padding: 20px;
+    }
+
+    #thankyou-message {
+        width: 80%;
+        border: 5px solid #4c9d44;
+        border-radius: 25px;
+        padding: 20px;
+        font-size: 130%;
+    }
+
+    #thankyou-message h3 {
+        font-size: 300%;
+    }
+
+    #thankyou-message p {
+        margin-top: 10px;
+        font-size: 140%;
+        color: #4c9d44;
+    }
+
+    #thankyou-img {
+        margin-top: 10px;
+    }
+
+    #thankyou-section a {
+        font-size: 120%;
     }
 }
