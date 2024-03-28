@@ -123,11 +123,44 @@ Wireframes:
 
  -  Icons used throughout the website were taken from the [Font Awesome](https://fontawesome.com/icons) icon library. They are utilized in the `<i>` tag.
  -  Icons are used in the navigational Bar & Footer as well as in other assets and pages on the site such as thankyou.html & the 404.html page. They were used to create a more visually appealing site. Appropriate use of icons was done to also visually help users navigate the webpages.
- 
+
 ### Colors
 
- 
+![Site Color Palette](assets/images/site-images/site-color-palette.png)
+
+- When designing Alien Evaders, the goal was to create an enviroment for a little Alien to jump across rooftops. Night time was considered to be the best backdrop for the game and so a color palette was deisgned around that in mind. Each color was picked to contrast and compliment each other. As the site needed to match the game's theme, that was also kept in mind when colors were chosen.
+- The deep blue color on the palette, Oxford Blue or #08193B, was chosen as the night sky. It was felt that this blue was the most suitable, indicating a dark enviroment that would contrast perfectly to the more vibrant colors both on the game and on the webpages. It was important to use the color appropriately otherwise, the site would appear far too dark, hard to read and overbearing for users.
+- The White-like color, Platinum or #E5E5E5, was used to directly contrast and match the dark themes of Oxford Blue, to brighten up the page. That is fitting as this color was used as the Moon assets and the stars in the night sky. This color was the best kind of white to use as it was not too bright on the eyes but not too dull either.
+- Pigment Green or #4C9D44 was one of the colors chosen for the Alien character and a support color for text and some elements on the pages. It was often used as borders to contrast the Oxford Blue. This particular green was chosen, as the common trope for aliens in media are green and this site was designed around the little green alien, it was important to use a green not too dark or not to light. It was a conscious choice to use the green mostly sparingly as a supporting color and a highlight, because it helps the user focus on the character while playing the game.
+- Two purples were used both on the site and on the game assets of Alien Evader, Royal Purple & Amethyst or #8259B0 & #9457D9 respectively. These colors were used quite frequently as font-color as they contrasted well with the Oxford Blue backgrounds and the Pigment Green borders. Royal Purple was introduced to the site for better accessibility where the Amethyst coloring did not contrast as well with the Platinum coloring. Instead the Amethyst coloring was used on other assets most notably the Alien's legs.
+
+### Site Backgrounds
+
+![Site Star Background](assets/images/site-images/night-sky-art.webp)
+
+Star & Night Sky Background
+
+- Like every asset on Alien Evader, this was hand created using [Affinity Designer 2](https://affinity.serif.com/en-gb/designer/). Utilizing Oxford Blue for the sky & Platinum for the Moon & stars.
+- It felt natural to use this as the main site background, and used quite frequently for styling other parts of the site such as the feedback section.
+
+![Site Asset Background](assets/images/site-images/site-background.webp)
+
+Game Section Wallpaper
+
+- This image was used as the background for the game section on the page. It compiles multiple game assets onto an image as a wallpaper. Using it behind the game section in index.html, allows the section have a interesting background while not looking out of place or too distracting for users playing the game. It is most noticable on Laptop & Desktop sized screens.   
 ---
+
+![Site Header & Footer Background](assets/images/site-images/site-header-img.webp)
+
+Header & Footer Wallpaper
+
+- This image was used as the background image for the Header & Footer elements, alongside some other elements on the webpages. It references the style the moon which matches the one found in game.
+- The purpose of using this image, was to give the elements that uses it, such as the Header & Footer, a texture styling so that they are not one singular solid color. It makes these elements match the page styling so much better.
+
+### Other Site & Game Assets
+
+There are a large amount of custom made assets made for Alien Evader. To view these assets please see the Google Drive folder here: https://drive.google.com/drive/folders/1xaAKbgmLqbPimEjjYu5Sn4fLmKJ2nkPO?usp=sharing
+
 # Features
 
 ## Page Elements
@@ -147,11 +180,22 @@ Wireframes:
 
 ### Site Content
 
-- 
+- Allow users to create an account on the site.
+- Provide a forum where patch notes, discussions and community artwork can be submitted.
+
+### Game Content
+
+- Provide game achievements for users to earn.
+- Add working a Leaderboard to save and compare scores & statistics.
+- Add animations to the game. 
+- Add new sound effects / music tracks to the game.
+- Add new assets, potentially choosable character models.
 
 ### Site Design
 
-- 
+- Intregrate a working version of EmailJS to send users an email of confirmation after they submitted a feedback forum.
+- Update the site with some more custom assets where appropriate.
+- Change social media links to real Alien Evader socials.
 
 # Technology Used
 
@@ -187,6 +231,8 @@ Wireframes:
     - Tool used to create palette image.
 - [Am I Responsive?](https://ui.dev/amiresponsive)
     - Tool used to create multiple device image.
+- [FreeConvert](https://www.freeconvert.com)
+    - Tool used to change images to .webp file types.
 - [Affinity Designer 2](https://affinity.serif.com/en-gb/designer/)
     - Software used to create all the site & game imagery by hand.
 - [Audacity](https://www.audacityteam.org)
