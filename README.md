@@ -60,48 +60,47 @@ The site has been themed alongside the game and is aimed to be responsive on all
 
 ### Visitor Goals
 
+The target audience for Alien Evader are:
 
-
-- 
-- 
-- 
-- 
-- 
+- Visitors who want to play a platformer game.
+- Visitors of all ages in a age appropriate game.
+- Visitors who want to pass the time.
+- Visitors who like 2D cartoon games.
+- Visitors that want to give their input into development.
 
 The User goals are:
 
-- 
-- 
-- 
-- 
-- 
+- To play a platformer game.
+- To want to return to play.
+- To have input on the game's future.
+- To connect with a community.
+- To learn how to play the game.
 
-The site fills these goals by:
+The Alien Evader site fills these goals by:
 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
+- Providing a functional 2D platforming game on site.
+- Providing a Score system users can work on getting the highest score.
+- Providing a feedback form users can fill out to give game suggestions.
+- Providing a clear set of links to Alien Evader socials.
+- Providing a in-game How to Play page with simple instructions.
+- Providing a user friendly game and site design for all ages.
 
 ### Business Goals
 
+The Business Goals for Alien Evader are:
 
-
-- 
-- 
-- 
-- 
+- Encourage user traffic with a simple and friendly game & site design.
+- Gain new ideas from community members submitting feedback forms.
+- Gain more traffic to other site social media outlets.
+- Build a community around the game for future expansion.
 
 ### User Stories
 
-1. 
-2. 
-3. 
-4. 
-5. 
+1. As a gamer looking to pass the time. I expect Alien Evader to be replayable & addicting. 
+2. I expect the site itself to match the game. It should be clear, concise and certainly not hard to navigate.
+3. As a person on the go, I would love to be able to play the game on my way to work.
+4. I love when my ideas are listened to by developers, so I would like to be able to submit my suggestions.
+5. As someone who loves 2D games, I'd like the game to have a heavy 2D cartoon atmosphere.
 
 
 ## Visual Design
@@ -112,10 +111,19 @@ Wireframes:
 
 ### Fonts
 
+![Site Font Example](assets/images/site-images/site-font-example.png)
+
+ - The primary font used on the website & game assets was [Madimi One](https://fonts.google.com/specimen/Madimi+One). This font was chosen as the main font because it really gave off the impression it felt at place with cartoon style graphics. It's bubble like appearance really sat well with the other graphics on the page while maintaining a certain level of professionalism. On a practical note, the font is clear & easy to read on all devices and is not harsh on the eyes in any way. While there are other fonts with similiar styles Madimi One was picked to be the best for the job. The font styles well for all text on the page as by design, large bodies of text are not common on the Alien Evader site instead relying on a graphical and simplistic approach. 
+
+ - The secondary font for the website [Rubik](https://fonts.google.com/specimen/Rubik) was picked for it's easy readability and playful style. It is not harsh to look at, and when styled correctly using higher values it looks very alike the primary font's style. It is inviting to all users and fits the cartoon style of the site almost as well.
 
 ### Icons
 
+![Site Icon Example](assets/images/site-images/site-icon-example.png)
 
+ -  Icons used throughout the website were taken from the [Font Awesome](https://fontawesome.com/icons) icon library. They are utilized in the `<i>` tag.
+ -  Icons are used in the navigational Bar & Footer as well as in other assets and pages on the site such as thankyou.html & the 404.html page. They were used to create a more visually appealing site. Appropriate use of icons was done to also visually help users navigate the webpages.
+ 
 ### Colors
 
  
