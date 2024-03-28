@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Display the pop-up message if the screen width is <= 768
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 800) {
         var popUpMessage = document.querySelector('.popup-message');
         if (popUpMessage) {
             popUpMessage.classList.remove('hidden');

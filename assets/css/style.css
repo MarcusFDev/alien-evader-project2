@@ -893,6 +893,10 @@ footer {
     #social-media a span {
         display: none;
     }
+
+    .hidden {
+        display: none;
+    }
 }
 
 /* Small screen devices (tablets, etc between 431px and 768px width) */
@@ -1141,6 +1145,10 @@ footer {
     }
 
     #social-media a span {
+        display: none;
+    }
+
+    .hidden {
         display: none;
     }
 }
