@@ -209,7 +209,9 @@ There are a large amount of custom made assets made for Alien Evader. To view th
 
 ![Alien Evader Menu image](assets/images/site-images/site-gamecanvas-img.png)
 
-The Alien Evader game was created using the [Phaser Framework](https://phaser.io). The Game is divided into multiple `scenes` and imported into the `<script.js>` file. Alien Evader uses `<div>` as buttons which have been styled using CSS & custom assets as images. While an attempt was made to have the game completely functional on all devices, unforeseen issues arose with the Phaser code causing the scene background images to not appear as they should and due to the problem not being fixable for the project deadline; the game may not yet be working as intended on Mobile and Tablet sized devices.
+The Alien Evader game was created using the [Phaser Framework](https://phaser.io). The Game is divided into multiple `scenes` and imported into the `<script.js>` file. Alien Evader uses `<div>` as buttons which have been styled using CSS & custom assets as images. 
+
+While an attempt was made to have the game completely functional on all devices, unforeseen issues arose with the Phaser code causing the scene background images to not appear as they should and due to the problem not being fixable for the project deadline; the game may not yet be working as intended on Mobile and Tablet sized devices.
 
 - The Play button changes the `scene` and allows the user to begin the game.
 - The How to Play button sends the user to a new `scene` revealing a styled `<div>` providing instructions of how to play.
