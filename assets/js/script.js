@@ -74,18 +74,27 @@ function validateForm(event) {
 }
 // Pop Up Message notice functionality for 768px screens & below
 
-window.addEventListener('DOMContentLoaded', function () {
-    var popUpMessage = document.getElementById('popup-message');
-    var dismissBtn = document.getElementById('dismiss-btn');
-
+document.addEventListener('DOMContentLoaded', function () {
+    // Function to dismiss the pop-up message
     function dismissWarning() {
-        popUpMessage.classList.add('hidden');
+        var popUpMessage = document.querySelector('.popup-message');
+        if (popUpMessage) {
+            popUpMessage.classList.add('hidden');
+        }
     }
 
+    // Display the pop-up message if the screen width is <= 768
     if (window.innerWidth <= 768) {
-        popUpMessage.classList.remove('hidden');
+        var popUpMessage = document.querySelector('.popup-message');
+        if (popUpMessage) {
+            popUpMessage.classList.remove('hidden');
 
-        dismissBtn.addEventListener('click', dismissWarning);
-        dismissBtn.addEventListener('touchend', dismissWarning);
+            // Attach event listener to the dismiss button for click and touch events
+            var dismissBtn = document.querySelector('.dismiss-btn');
+            if (dismissBtn) {
+                dismissBtn.addEventListener('click', dismissWarning);
+                dismissBtn.addEventListener('touchend', dismissWarning);
+            }
+        }
     }
 });

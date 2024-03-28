@@ -674,7 +674,7 @@ footer {
 
     /* Pop up Warning for Mobile screens (430px and below) */
 
-    #popup-message {
+    .popup-message {
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -694,19 +694,19 @@ footer {
         z-index: 95;
     }
 
-    #popup-message h2,
+    .popup-message h2,
     span {
         color: #9457D9;
     }
 
-    #dismiss-btn {
+    .dismiss-btn {
         color: #C6A6EA;
         padding: 10px 20px;
         font-size: 180%;
         border: 3px solid #4c9d44;
         border-radius: 10px;
         background-color: #08193B;
-        display: inline-block;
+        display:inline-block;
     }
 
     /* Game styling for Mobile screens (430px and below) */
@@ -928,7 +928,7 @@ footer {
 
     /* Pop up Warning for Tablet screens (Between 431px to 768px) */
 
-    #popup-message {
+    .popup-message {
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -945,15 +945,15 @@ footer {
         height: 460px;
         margin-top: 15px;
         padding: 25px;
-        z-index: 95;
+        z-index: 90;
     }
 
-    #popup-message h2,
+    .popup-message h2,
     span {
         color: #9457D9;
     }
 
-    #dismiss-btn {
+    .dismiss-btn {
         color: #C6A6EA;
         padding: 10px 20px;
         font-size: 180%;
@@ -961,6 +961,7 @@ footer {
         border-radius: 10px;
         background-color: #08193B;
         display: inline-block;
+        z-index: 100;
     }
 
     /* Game styling for Tablet screens (Between 431px to 768px) */
