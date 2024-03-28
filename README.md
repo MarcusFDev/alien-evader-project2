@@ -19,11 +19,13 @@ The site has been themed alongside the game and is aimed to be responsive on all
      - [Fonts](#fonts)
      - [Icons](#icons)
      - [Colors](#colors)
+     - [Site Backgrounds](#site-backgrounds)
+     - [Other Site Assets](#other-site-assets)
 
 2. [Features](#features)
    - [Page Elements](#page-elements)
      - [All Web Pages](#all-web-pages)
-     - [Header](#header)
+     - [Header & Navigational Bar](#header--navigational-bar)
      - [Footer](#footer)
    - [Feature Ideas](#feature-ideas)
      - [Site Content](#site-content)
@@ -157,7 +159,7 @@ Header & Footer Wallpaper
 - This image was used as the background image for the Header & Footer elements, alongside some other elements on the webpages. It references the style the moon which matches the one found in game.
 - The purpose of using this image, was to give the elements that uses it, such as the Header & Footer, a texture styling so that they are not one singular solid color. It makes these elements match the page styling so much better.
 
-### Other Site & Game Assets
+### Other Site Assets
 
 There are a large amount of custom made assets made for Alien Evader. To view these assets please see the Google Drive folder here: https://drive.google.com/drive/folders/1xaAKbgmLqbPimEjjYu5Sn4fLmKJ2nkPO?usp=sharing
 
@@ -167,10 +169,68 @@ There are a large amount of custom made assets made for Alien Evader. To view th
 
 ### All Web Pages
 
-### Header
+### Header & Navigational Bar
 
+![Site Header & Navigational Bar](assets/images/site-images/site-headernav-img.png)
+
+- The Header & Navigational bar is located on every page of the website. It was designed to match the cartoon style of the game, while being clear and concise. It provides a link to the Home page and a shortcut to the feedback section on the page.
+- The Header itself is a link to the Home page when clicked. 
+- The Home button is given a `.active` class to indicate when the user's on that page.
+- The links have been given a hover affect for better user interactivity. 
+- The Navigational bar was deisgned with easy expansion in mind if more pages are required.
+- It is responsive to the device viewport. 
 
 ### Footer
+
+![Site Footer Image](assets/images/site-images/site-footerlarge-img.png)
+
+- The Footer is located on every page of the website. It is designed to match the Header & Navigational bar, and fit the style of the page perfectly. 
+- The Footer's purpose is to contain links to the social medias of the Alien Evader community. It also has the copyright message below the social media buttons. 
+- The Footer was inspired by the ["Love Running"](https://learn.codeinstitute.net/login?next=/courses/course-v1%3ACodeInstitute%2BLRFX101%2B2023_Q2/courseware/e805068059af42af87681032aa64053f/7525117e5cd144daa2a7b0c57843bbee/) project by Code Institute. Any code taken was modified and styled for the Alien Evader website in mind adding buttons and a highlight feature, alongside the copyright information to indivudualize this site's footer.
+- When hovering over a button with a mouse in the Footer, it highlights the icon. This is done for aesthetic purposes giving the user more interaction on the site. 
+- On larger screens such as Desktop the buttons have pairing text with them underneath.
+
+![Site Footer Image Mobile](assets/images/site-images/site-footersmall-img.png)
+
+- The Footer is responsive to viewports. On smaller screens such as Mobile the text is hidden to conserve space for users.
+
+### Index Page
+
+- The site has been designed so that this is the Main page of Alien Evader. It is where site users will spend majority of their time as both the Phaser JavaScript game & feedback form is located on it. The `index.html` has been designed simply, to not overwhelm the user once they come onto the website, and has been carefully designed to match the aesthic of the game.
+- The first section contains the Alien Evader game canvas itself. 
+
+![Site Feedback Form](assets/images/site-images/site-feedbackform-img.png)
+
+- The second section is for the feedback form where users can fill in a form to submit feedback & give their suggestions for game ideas.
+- Using the attributes `type=""` & `required` all fields must be filled in correctly before the form is submitted.
+- If the form has been filled out correctly and the submit button has been clicked it will send users to the `thankyou.html` page.
+
+### The Alien Evader Game
+
+![Alien Evader Menu image](assets/images/site-images/site-gamecanvas-img.png)
+
+The Alien Evader game was created using the [Phaser Framework](https://phaser.io). The Game is divided into multiple `scenes` and imported into the `<script.js>` file. Alien Evader uses `<div>` as buttons which have been styled using CSS & custom assets as images. While an attempt was made to have the game completely functional on all devices, unforeseen issues arose with the Phaser code causing the scene background images to not appear as they should and due to the problem not being fixable for the project deadline; the game may not yet be working as intended on Mobile and Tablet sized devices.
+
+- The Play button changes the `scene` and allows the user to begin the game.
+- The How to Play button sends the user to a new `scene` revealing a styled `<div>` providing instructions of how to play.
+- The Audio button switches on & off the music for the game, by default the audio is off. 
+
+![Alien Evader Game image](assets/images/site-images/site-game-img.png)
+
+The Game Scene
+
+- Users can control the alien with `A & D` or `Left & Right Arrow` keys and `Space` to Jump. 
+- Users are to jump across the buildings and not fall down. Two game over conditions exist, one for falling down between the buildings & one if you hit the left side of the canvas.
+- Buildings act as platforms, 7 variations of buildings were designed and randomly are created utilizing an array in `game.js`.
+- Score increases over time the longer the game is active and gives the user a reason to keep playing. 
+
+![Alien Evader Game Over image](assets/images/site-images/site-gameover-img.png)
+
+The Game Over Scene
+
+- Users final score result appears on the page. 
+- A restart button was implemented for a better user experience.
+- A Menu button appears so that users can return to the main menu of the game.
 
 
 ## Additional Site Features
