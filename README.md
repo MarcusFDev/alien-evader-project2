@@ -1,7 +1,10 @@
 # Alien Evader
 
-[Alien Evader]() 
+[Alien Evader](https://marcusfdev.github.io/alien-evader-project2/) has been designed as a cartoon platformer game. Users control a little alien attempting to evade their parent's spaceship as long as they can using the building rooftops. Users can build up score the longer they remain uncaught, they are to be mindful however, the longer they remain evading, the faster the chase becomes. 
 
+The site has been themed alongside the game and is aimed to be responsive on all devices with the addition of a Feedback form, so users can send in their own ideas with the goal of community building.
+
+![Site on All Devices](assets/images/site-images/site-all-devices.png)
 ---
 
 # Table of Contents
@@ -155,7 +158,10 @@ Wireframes:
 
 ## Libraries
 
-- 
+- [Phaser](https://phaser.io)
+    - The Phaser Framework was chosen to help create my JavaScript game.
+- [JQuery](https://jquery.com)
+    - The JQuery Framework was used to help overcome a crticial issue where some normal JavaScript code was being affected by The Phaser Framework.
 
 ## Platforms
 
@@ -167,7 +173,16 @@ Wireframes:
 
 ## Other Tools
 
-- 
+- [Favicon Generator](https://www.favicon-generator.org)
+    - Tool used to create Website Favicon.
+- [Coolers](https://coolors.co)
+    - Tool used to create palette image.
+- [Am I Responsive?](https://ui.dev/amiresponsive)
+    - Tool used to create multiple device image.
+- [Affinity Designer 2](https://affinity.serif.com/en-gb/designer/)
+    - Software used to create all the site & game imagery by hand.
+- [Audacity](https://www.audacityteam.org)
+    - Software used to edit game audio into a better loop.
 
 # Testing
 
@@ -208,13 +223,23 @@ Requirements:
 3. Go to the Settings page of the repository.
 4. Under the Code and automation section scroll down and click on Pages.
 5. Select the Master Branch as the source and Confirm the selection.
-6. Wait a few minutes and the site should be live for viewing. See my own [right here.]()
+6. Wait a few minutes and the site should be live for viewing. See my own [right here.](https://marcusfdev.github.io/alien-evader-project2/)
 
 ## Credits and Contact
 
 ### Credits
 
+Phaser Walkthrough online book:
+- [Phaser Book](https://blog.ourcade.co) written & published by Tommy Leung.
 
+Game Audio was sourced on [Freesound](https://freesound.org) by these authors:
+
+- [Game Background music](https://freesound.org/people/bigrod2012/sounds/407126/) by bigrod2012.
+- [Removed Jump sound](https://freesound.org/people/cabled_mess/sounds/350898/) by cabled_mess.
+
+Code that was taken and edited accordingly:
+
+- Original Footer code by [Code Institute](https://codeinstitute.net/ie/).
 
 ### Contact
 
