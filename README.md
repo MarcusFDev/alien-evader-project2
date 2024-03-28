@@ -207,17 +207,17 @@ There are a large amount of custom made assets made for Alien Evader. To view th
 
 ### The Alien Evader Game
 
-![Alien Evader Menu image](assets/images/site-images/site-gamecanvas-img.png)
-
-The Alien Evader game was created using the [Phaser Framework](https://phaser.io). The Game is divided into multiple `scenes` and imported into the `<script.js>` file. Alien Evader uses `<div>` as buttons which have been styled using CSS & custom assets as images. 
+The Alien Evader game was created using the [Phaser](https://phaser.io) Framework. The Game is divided into multiple `scenes` and imported into the `<script.js>` file. Alien Evader uses `<div>` as buttons which have been styled using CSS & custom assets as images. 
 
 While an attempt was made to have the game completely functional on all devices, unforeseen issues arose with the Phaser code causing the scene background images to not appear as they should and due to the problem not being fixable for the project deadline; the game may not yet be working as intended on Mobile and Tablet sized devices.
+
+The Game Menu Scene
 
 - The Play button changes the `scene` and allows the user to begin the game.
 - The How to Play button sends the user to a new `scene` revealing a styled `<div>` providing instructions of how to play.
 - The Audio button switches on & off the music for the game, by default the audio is off. 
 
-![Alien Evader Game image](assets/images/site-images/site-game-img.png)
+![Alien Evader Menu image](assets/images/site-images/site-gamecanvas-img.png)
 
 The Game Scene
 
@@ -226,7 +226,7 @@ The Game Scene
 - Buildings act as platforms, 7 variations of buildings were designed and randomly are created utilizing an array in `game.js`.
 - Score increases over time the longer the game is active and gives the user a reason to keep playing. 
 
-![Alien Evader Game Over image](assets/images/site-images/site-gameover-img.png)
+![Alien Evader Game image](assets/images/site-images/site-game-img.png)
 
 The Game Over Scene
 
@@ -234,10 +234,45 @@ The Game Over Scene
 - A restart button was implemented for a better user experience.
 - A Menu button appears so that users can return to the main menu of the game.
 
+![Alien Evader Game Over image](assets/images/site-images/site-gameover-img.png)
 
 ## Additional Site Features
 
+### Thank You Page
 
+- Upon a user successfully submitting a form, the webpage changes to the `thankyou.html` webpage.
+- This page was designed to communicate to the user that their feedback was collected by the system.
+- The Thank You page was styled with the header and footer of `index.html` maintaining the same theme in uniform with the rest of the site.
+- It provides a go back button for users to easily navigate back to the home page.
+- It is responsive to the device viewport.
+- Due to a bug identified to be caused by the Phaser framework and conscious of the time scope of the project, incorporating the [jQuery](https://jquery.com) Framework was needed to successfully read a completed form & change the webpage from `index.html` to `thankyou.html`. 
+
+It was intended to use [EmailJS](https://www.emailjs.com) to send the user an email for when they submitted a successful form. However due to issues with the functionality of EmailJS on their website and keeping in mind the scope & time of The Alien Evader project, this was pushed to Feature Ideas.
+
+![Thank you page image](assets/images/site-images/site-thankyou-img.png)
+
+### Notice Message
+
+With the current unexpected issues with the Alien Evader game on Mobile & Tablet devices, and the solution being out of reach for the project deadline. The decision was made to create a Notice message for users on Mobile & Tablet devices, letting users be aware of the current issues with the functionality of the game on their device. 
+
+- On the DOM load if the JavaScript detects a user is on a screen width of 800px or less, a `<div>` element will appear above the game container.
+- A dismiss button is provided to users to remove the message from the site.
+- The Message is styled for Tablet & Phone devices 
+
+![Notice Message](assets/images/site-images/site-notice-img.png)
+
+### 404 Error Page
+
+ - Customized 404 error page for website if a page the user is attempting to find is not located.
+ - Used 404.html file and styled to match the rest of the website.
+ - Provided a brief explaination to the user and provided a Return Home button so that the user may return to the Home page.
+ - Return button highlights if a mouse hovers over it.
+ - Added a contact support email if problem persists for the user.
+ - 404 Error page is responsive to viewport and is readable and accessible to all devices.
+
+ ![404 Page image](assets/images/site-images/site-404-img.png)
+
+ 
 ## Feature Ideas
 
 ### Site Content
