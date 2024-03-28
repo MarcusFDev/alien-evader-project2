@@ -544,7 +544,7 @@ form h2 {
 }
 
 #thankyou-section span {
-    color:#C6A6EA;
+    color: #C6A6EA;
 }
 
 #thankyou-section i {
@@ -672,12 +672,50 @@ footer {
         font-size: 100%;
     }
 
+    /* Pop up Warning for Mobile screens (430px and below) */
+
+    #popup-message {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        text-align: center;
+        font-size: 120%;
+        background-color: #e5e5e5;
+        background-image: url('../images/site-images/site-header-img.webp');
+        background-position: center center;
+        border: 5px solid #4C9D44;
+        box-shadow: 0 2px 2px #08193B;
+        border-radius: 20px;
+        width: 100%;
+        height: 460px;
+        margin-top: 15px;
+        padding: 25px;
+        z-index: 95;
+    }
+
+    #popup-message h2,
+    span {
+        color: #9457D9;
+    }
+
+    #dismiss-btn {
+        color: #C6A6EA;
+        padding: 10px 20px;
+        font-size: 180%;
+        border: 3px solid #4c9d44;
+        border-radius: 10px;
+        background-color: #08193B;
+        display: inline-block;
+    }
+
     /* Game styling for Mobile screens (430px and below) */
 
     #gameContainer {
         display: flex;
-        width: 95vw;
+        width: 100vw;
         height: 80vh;
+        z-index: 90;
     }
 
     .start-btn {
@@ -888,11 +926,48 @@ footer {
         font-size: 100%;
     }
 
+    /* Pop up Warning for Tablet screens (Between 431px to 768px) */
+
+    #popup-message {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        text-align: center;
+        font-size: 140%;
+        background-color: #e5e5e5;
+        background-image: url('../images/site-images/site-header-img.webp');
+        background-position: center center;
+        border: 5px solid #4C9D44;
+        box-shadow: 0 2px 2px #08193B;
+        border-radius: 20px;
+        width: 100%;
+        height: 460px;
+        margin-top: 15px;
+        padding: 25px;
+        z-index: 95;
+    }
+
+    #popup-message h2,
+    span {
+        color: #9457D9;
+    }
+
+    #dismiss-btn {
+        color: #C6A6EA;
+        padding: 10px 20px;
+        font-size: 180%;
+        border: 3px solid #4c9d44;
+        border-radius: 10px;
+        background-color: #08193B;
+        display: inline-block;
+    }
+
     /* Game styling for Tablet screens (Between 431px to 768px) */
 
     #gameContainer {
         display: flex;
-        width: 95vw;
+        width: 100vw;
         height: 80vh;
     }
 

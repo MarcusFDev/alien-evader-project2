@@ -10,6 +10,8 @@ import gameover from './scenes/gameover.js'
 
 import gameovertwo from './scenes/gameovertwo.js'
 
+// Phaser game basic setup code
+
 function initializeGame() {
     const gameWidth = document.getElementById('gameContainer').offsetWidth;
     const gameHeight = document.getElementById('gameContainer').offsetHeight;
@@ -36,6 +38,8 @@ function initializeGame() {
 document.addEventListener('DOMContentLoaded', () => {
     initializeGame();
 });
+
+// Form functionality to send users to thankyou.html page
 
 $(document).ready(function () {
     $('#feedback-form').submit(function (event) {
@@ -68,3 +72,20 @@ function validateForm(event) {
     return isValid;
 
 }
+// Pop Up Message notice functionality for 768px screens & below
+
+window.addEventListener('DOMContentLoaded', function () {
+    var popUpMessage = document.getElementById('popup-message');
+    var dismissBtn = document.getElementById('dismiss-btn');
+
+    function dismissWarning() {
+        popUpMessage.classList.add('hidden');
+    }
+
+    if (window.innerWidth <= 768) {
+        popUpMessage.classList.remove('hidden');
+
+        dismissBtn.addEventListener('click', dismissWarning);
+        dismissBtn.addEventListener('touchend', dismissWarning);
+    }
+});
