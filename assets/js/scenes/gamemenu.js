@@ -105,7 +105,7 @@ export default class gamemenu extends Phaser.Scene {
             event.preventDefault();
 
             this.scene.start(sceneKey);
-        });
+        }, { passive: true }); // Setting touch event listener to passive
     }
 
     addAudioToggleEventListeners(button) {
@@ -118,7 +118,7 @@ export default class gamemenu extends Phaser.Scene {
         button.addEventListener('touchstart', (event) => {
             event.preventDefault();
             this.toggleAudio();
-        });
+        }, { passive: true }); // Setting touch event listener to passive
     }
 
     toggleAudio() {

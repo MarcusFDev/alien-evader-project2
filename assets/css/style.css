@@ -82,7 +82,7 @@ nav a {
 
 nav i {
     text-decoration: none;
-    color: #4CAF50;
+    color: #4C9D44;
 }
 
 nav span {
@@ -90,14 +90,14 @@ nav span {
 }
 
 nav a:hover {
-    background-color: #C9C9C9;
+    background-color: whitesmoke;
     border-radius: 10px;
     border: 3px solid #8259B0;
     color: #4C9D44;
 }
 
 .active {
-    background-color: #C9C9C9;
+    background-color: whitesmoke;
     border-radius: 10px;
     border: 3px solid #8259b0;
     color: #4C9D44;
