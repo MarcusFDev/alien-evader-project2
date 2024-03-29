@@ -357,9 +357,23 @@ With the current unexpected issues with the Alien Evader game on Mobile & Tablet
 
 ![CSS Validated image](assets/images/site-images/css-validated-img.png)
 
+- Accessibility has been tested using developer tools utilizing lighthouse.
+
+![Lighthouse Testing image](assets/images/site-images/site-lighthouse-result.png)
+
 ### General Testing
 
-- 
+- After every alteration that was made to the code, everything was prompty tested to check for change.
+- Feedback form will not submit until all fields are correctly filled in. 
+- All External links work and open in seperate tabs.
+- Both the Home & Feedback internal buttons work and send to their respective pages.
+- Tablet & Mobile notice message works on those devices, hidden on larger screens.
+- Dismiss button works to remove notice message.
+- 404 page works correctly.
+- Thank you page works correctly.
+- Any backup features added were tested and work as intended.
+- The website appears to function correctly in different browsers: Chrome, OperaGX, Microsoft Edge.
+- Using Chrome Developer tools, site responsiveness was tested for all major device sizes.
 
 ## Bugs
 
