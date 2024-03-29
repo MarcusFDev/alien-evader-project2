@@ -436,7 +436,6 @@ form h2 {
     font-size: 190%;
     background-color: #e5e5e5;
     background-image: url('../images/site-images/site-header-img.webp');
-    background-size: fit;
     background-position: center center;
     border: 10px solid #08193B;
     box-shadow: 0 2px 2px #08193B;
@@ -568,7 +567,6 @@ footer {
     box-shadow: 0 -2px 2px #08193B;
     padding-bottom: 70px;
     background-image: url('../images/site-images/site-header-img.webp');
-    background-size: fit;
     background-position: center center;
 }
 

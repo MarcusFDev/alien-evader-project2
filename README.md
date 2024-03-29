@@ -27,6 +27,12 @@ The site has been themed alongside the game and is aimed to be responsive on all
      - [All Web Pages](#all-web-pages)
      - [Header & Navigational Bar](#header--navigational-bar)
      - [Footer](#footer)
+     - [Index Page](#index-page)
+     - [The Alien Evader Game](#the-alien-evader-game)
+   - [Additional Site Features](#additional-site-features)
+     - [Thank You Page](#thank-you-page)
+     - [Notice Message](#notice-message)
+     - [404 Error Page](#404-error-page)
    - [Feature Ideas](#feature-ideas)
      - [Site Content](#site-content)
      - [Site Design](#site-design)
@@ -209,13 +215,15 @@ There are a large amount of custom made assets made for Alien Evader. To view th
 
 The Alien Evader game was created using the [Phaser](https://phaser.io) Framework. The Game is divided into multiple `scenes` and imported into the `<script.js>` file. Alien Evader uses `<div>` as buttons which have been styled using CSS & custom assets as images. 
 
-While an attempt was made to have the game completely functional on all devices, unforeseen issues arose with the Phaser code causing the scene background images to not appear as they should and due to the problem not being fixable for the project deadline; the game may not yet be working as intended on Mobile and Tablet sized devices.
+While an effort was made to have the game completely functional on all devices, unforeseen issues arose with the Phaser code causing the scene background images to not appear as they should and due to the problem not being fixable for the project deadline; the game may not yet be working as intended on Mobile and Tablet sized devices.
 
 The Game Menu Scene
 
 - The Play button changes the `scene` and allows the user to begin the game.
 - The How to Play button sends the user to a new `scene` revealing a styled `<div>` providing instructions of how to play.
 - The Audio button switches on & off the music for the game, by default the audio is off. 
+
+Regarding Audio, an attempt was made to give the jump an audio sound. Due to a bug causing the audio button not to function correctly with the jump sound in place, the jump sound was removed and pushed to Feature ideas. The jump sound was referenced in Credits.
 
 ![Alien Evader Menu image](assets/images/site-images/site-gamecanvas-img.png)
 
@@ -341,7 +349,13 @@ With the current unexpected issues with the Alien Evader game on Mobile & Tablet
 
 ### Validation
 
-- 
+- HTML pages all have been validated with the [W3C HTML5 Validator](https://validator.w3.org/nu/#textarea) tool.
+
+![HTML Validated image](assets/images/site-images/html-validated-img.png)
+
+- All CSS code has been validated with the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) tool.
+
+![CSS Validated image](assets/images/site-images/css-validated-img.png)
 
 ### General Testing
 
@@ -351,11 +365,27 @@ With the current unexpected issues with the Alien Evader game on Mobile & Tablet
 
 ### Known Bugs
 
-- 
+- Phaser Game Canvas not appropriately aligning background with screen width changes. Potentially the sizing of assets need to be changed within code & potentially new assets created for screen sizes specifically.
+- The Notice message on Mobile & Tablet devices when dismiss it hit, the game begins playing. 
+- Phaser event listenors potentially affecting other JavaScript on the page resulting unexpected outcomes/failures.
 
 ### Fixed Bugs
 
-- 
+- Resolved an issue where the Notice message dismiss button would not work at all. Adding a `.hidden` class in the Mobile & Tablet Media Querys in the CSS allowed the `.hidden` to function correctly.
+
+![Hidden Element Bug image](assets/images/site-images/site-hiddenbug-img.png)
+
+- Resolved an issue where the game buttons would not work on touchscreen devices. Adding event listenors for touchscreens gave them functionality.
+
+![Touchscreen Bug image](assets/images/site-images/site-touchscreenbug.png)
+
+- Resolved a problem that caused the feedback form not to send a user to `thankyou.html` identified to be a bug caused from the Phaser code. The solution was to implement the jQuery framework. 
+
+![Feedback Submit bug image](assets/images/site-images/site-jquery-bugfix.png)
+
+- Resolved a issue that caused all buttons to be non functional on on touchscreen devices. Another Phaser related issue, updated to the most recent Phaser Framework which fixed the bug. 
+
+![Phaser Version bug image](assets/images/site-images/site-phaserversionbug.png)
 
 # Deployment
 
