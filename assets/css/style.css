@@ -126,7 +126,23 @@ main {
 #gameCanvas {
     width: 100%;
     height: 100%;
+    margin: 0 !important;
+    padding: 0;
+    display: block;
+    position: absolute; 
+    top: 0;
+    left: 0;
 }
+
+#gameContainer {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0; 
+}
+
 
 /* Game Start Button styling */
 .start-btn {
@@ -716,6 +732,13 @@ footer {
         z-index: 90;
     }
 
+    #gameCanvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+    }
+
     .start-btn {
         width: 200px;
         height: 100px;
@@ -760,8 +783,9 @@ footer {
         width: 95%;
         height: 300px;
         text-align: center;
+        position: relative;
         justify-content: center;
-        top: 200px;
+        top: 0;
 
     }
 

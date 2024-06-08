@@ -3,7 +3,6 @@ import Phaser from '../lib/phaser.js';
 export default class gamemenu extends Phaser.Scene {
     constructor() {
         super('game-menu');
-
         this.backgroundMusic = null;
         this.isMuted = true;
     }
@@ -16,14 +15,11 @@ export default class gamemenu extends Phaser.Scene {
 
     create() {
         const screenWidth = window.innerWidth;
-        const screenHeight = window.innerHeight;
 
         if (screenWidth <= 560) {
 
-            const background = this.add.image(screenWidth / 2, screenHeight / 2, 'gamemenuscrtwo').setOrigin(0.5);
-
-            const scaleFactor = 0.1;
-            background.setScale(scaleFactor);
+            const background = this.add.image(-55, 0, 'gamemenuscrtwo').setOrigin(0, 0);
+            background.setScale(1);
 
             const startButton = document.querySelector('[data-type="start-btn"]');
             startButton.classList.remove('hidden');
@@ -47,7 +43,8 @@ export default class gamemenu extends Phaser.Scene {
             gameScoring.classList.add('hidden');
         } else {
             // The Game Menu image
-            this.add.image(0, 0, 'gamemenuscr').setOrigin(0, 0);
+            const background = this.add.image(0, 0, 'gamemenuscr').setOrigin(0, 0);
+            background.setScale(1);
 
             const startButton = document.querySelector('[data-type="start-btn"]');
             startButton.classList.remove('hidden');
