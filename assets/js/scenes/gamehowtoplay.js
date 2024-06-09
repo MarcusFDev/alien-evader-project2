@@ -1,53 +1,79 @@
-import Phaser from '../lib/phaser.js'
+// Import Phaser library
+import Phaser from '../lib/phaser.js';
 
-export default class gamehowtoplay extends Phaser.Scene {
-
+// Defines the GameHowtoPlay scene class
+export default class GameHowToPlay extends Phaser.Scene {
     constructor() {
-        super('game-htp')
+        super('game-htp');
     }
 
+    // Preloads game assets
     preload() {
-        // Loads the game over background
         this.load.image('gamehtpscr', 'assets/images/game-assets/howtoplay-scene-img.webp');
-
+        this.load.image('gamehtpscrtwo', 'assets/images/game-assets/howtoplaymobile.webp')
     }
 
+    // Creates game how to play scene
     create() {
-        // The Game Over image
-        this.add.image(0, 0, 'gamehtpscr').setOrigin(0, 0);
+        // Obtains the device screen width
+        const screenWidth = window.innerWidth;
 
-        // Menu button becomes visible & Start button is hidden
-        const startButton = document.querySelector('[data-type="start-btn"]');
-        startButton.classList.add('hidden');
+        // Adds background image based on screen width
+        if (screenWidth <= 560) {
+            this.background = this.add.image(-55, 0, 'gamehtpscrtwo').setOrigin(0, 0);
+            this.background.setScale(1);
+        } else {
+            this.background = this.add.image(0, 0, 'gamehtpscr').setOrigin(0, 0);
+            this.background.setScale(1);
+        }
 
-        const gameHtpButton = document.querySelector('[data-type="gameHtp-btn"]');
-        gameHtpButton.classList.add('hidden');
+        // Centers and scales background image
+        this.scaleBackground();
 
-        const gameRestartButton = document.querySelector('[data-type="gameRestart-btn"]');
-        gameRestartButton.classList.add('hidden');
+        // Registers resize event handler
+        this.scale.on('resize', this.scaleBackground, this);
 
-        const gameMenuButton = document.querySelector('[data-type="gameMenu-btn"]');
-        gameMenuButton.classList.add('hidden');
+        // Hide unnecessary buttons and elements
+        this.setupHowToPlay();
 
+        // Show the "Go Back" button and How to Play content
         const gameGoBackButton = document.querySelector('[data-type="gameGoBack-btn"]');
         gameGoBackButton.classList.remove('hidden');
 
         const howToPlayDiv = document.querySelector('[data-type="howtoplay-list"]');
         howToPlayDiv.classList.remove('hidden');
 
-        // Score Div hidden on this scene
-
-        const gameScoring = document.querySelector('[data-type="gameScore"]');
-        gameScoring.classList.add('hidden')
-
         // Event listener for Go Back button
         gameGoBackButton.addEventListener('click', () => {
-            console.log('Game Menu request detected')
-
-            // Moves to gamemenu.js
-            console.log('Loading Main Menu...')
-            this.scene.start('game-menu');
+            this.goBackToMenu();
         });
+    }
 
+    // Scales and center background image
+    scaleBackground() {
+        if (!this.background) return;
+        const { width, height } = this.scale;
+        const scaleX = width / this.background.width;
+        const scaleY = height / this.background.height;
+        const scale = Math.max(scaleX, scaleY);
+        this.background.setScale(scale).setOrigin(0.5);
+        this.background.x = width / 2;
+        this.background.y = height / 2;
+    }
+    // Sets up game menu elements
+    setupHowToPlay() {
+        const elementsToHide = ['start-btn', 'gameHtp-btn', 'gameMenu-btn', 'gameRestart-btn', 'gameScore'];
+        elementsToHide.forEach(element => {
+            const el = document.querySelector(`[data-type="${element}"]`);
+            if (el) {
+                el.classList.add('hidden');
+            }
+        });
+    }
+    // Goes back to Main Menu when called
+    goBackToMenu() {
+        console.log('Game Menu request detected');
+        console.log('Loading Main Menu...');
+        this.scene.start('game-menu');
     }
 }

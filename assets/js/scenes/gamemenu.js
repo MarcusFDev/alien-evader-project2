@@ -1,6 +1,8 @@
+// Import Phaser library
 import Phaser from '../lib/phaser.js';
 
-export default class gamemenu extends Phaser.Scene {
+// Defines the game menu scene class
+export default class GameMenu extends Phaser.Scene {
     constructor() {
         super('game-menu');
         this.backgroundMusic = null;
@@ -8,47 +10,49 @@ export default class gamemenu extends Phaser.Scene {
         this.background = null;
     }
 
+    // Preloads game assets
     preload() {
+        // Loads the images and audio files
         this.load.image('gamemenuscr', 'assets/images/game-assets/gamemenu-screen.webp');
         this.load.image('gamemenuscrtwo', 'assets/images/game-assets/gamemenu-mobile.webp');
         this.load.audio('backgroundMusic', 'assets/game-audio/game-background-sound.mp3');
     }
 
+    // Creates game menu scene
     create() {
+        // Obtains the device screen width
         const screenWidth = window.innerWidth;
 
+        // Adds background image based on screen width
         if (screenWidth <= 560) {
-
             this.background = this.add.image(-55, 0, 'gamemenuscrtwo').setOrigin(0, 0);
             this.background.setScale(1);
-
         } else {
-            // The Game Menu image
             this.background = this.add.image(0, 0, 'gamemenuscr').setOrigin(0, 0);
             this.background.setScale(1);
         }
 
-        // Center the background initially
+        // Centers and scales background image
         this.scaleBackground();
 
-        // Registers resize event to handle window resizing
+        // Registers resize event handler
         this.scale.on('resize', this.scaleBackground, this);
 
-        // Sets up buttons and hides selected elements
+        // Calls game menu elements method
         this.setupGameMenu();
 
-        // Button Event listeners for scene changes
+        // Adds event listeners for play & how to play buttons
         const startButton = document.querySelector('[data-type="start-btn"]');
         this.addButtonEventListeners(startButton, 'game');
 
         const gameHtpButton = document.querySelector('[data-type="gameHtp-btn"]');
         this.addButtonEventListeners(gameHtpButton, 'game-htp');
 
-        // User Toggle Audio functionality
+        // Adds event listener for audio toggle button
         const muteButton = document.querySelector('[data-type="audioToggle"]');
         this.addAudioToggleEventListeners(muteButton);
 
-        // Begins to play background music
+        // Plays background music
         if (!this.backgroundMusic || !this.backgroundMusic.isPlaying) {
             this.backgroundMusic = this.sound.add('backgroundMusic', {
                 loop: true,
@@ -59,75 +63,65 @@ export default class gamemenu extends Phaser.Scene {
         }
     }
 
+    // Sets up game menu elements
     setupGameMenu() {
+        // Hide certain elements
+        const elementsToHide = ['gameMenu-btn', 'gameRestart-btn', 'gameGoBack-btn', 'howtoplay-list', 'gameScore'];
+        elementsToHide.forEach(element => {
+            const el = document.querySelector(`[data-type="${element}"]`);
+            if (el) {
+                el.classList.add('hidden');
+            }
+        });
+
+        // Show start and how to play buttons
         const startButton = document.querySelector('[data-type="start-btn"]');
         startButton.classList.remove('hidden');
 
         const gameHtpButton = document.querySelector('[data-type="gameHtp-btn"]');
         gameHtpButton.classList.remove('hidden');
-
-        const gameMenuButton = document.querySelector('[data-type="gameMenu-btn"]');
-        gameMenuButton.classList.add('hidden');
-
-        const gameRestartButton = document.querySelector('[data-type="gameRestart-btn"]');
-        gameRestartButton.classList.add('hidden');
-
-        const gameGoBackButton = document.querySelector('[data-type="gameGoBack-btn"]');
-        gameGoBackButton.classList.add('hidden');
-
-        const howToPlayDiv = document.querySelector('[data-type="howtoplay-list"]');
-        howToPlayDiv.classList.add('hidden');
-
-        const gameScoring = document.querySelector('[data-type="gameScore"]');
-        gameScoring.classList.add('hidden');
     }
     
+    // Scales and center background image
     scaleBackground() {
-        if (!this.background) return; // Check if background is initialized
+        if (!this.background) return;
         const { width, height } = this.scale;
         const scaleX = width / this.background.width;
         const scaleY = height / this.background.height;
         const scale = Math.max(scaleX, scaleY);
-
         this.background.setScale(scale).setOrigin(0.5);
-
-        // Center the background
         this.background.x = width / 2;
         this.background.y = height / 2;
     }
 
+    // Add event listeners for buttons
     addButtonEventListeners(button, sceneKey) {
-        // Click event listener for mouse devices
         button.addEventListener('click', () => {
             this.scene.start(sceneKey);
         });
-
-        // Touch event listener for touchscreens devices
         button.addEventListener('touchstart', (event) => {
             event.preventDefault();
-
             this.scene.start(sceneKey);
-        }, { passive: true }); // Setting touch event listener to passive
+        }, { passive: true });
     }
 
+    // Add event listeners for audio toggle button
     addAudioToggleEventListeners(button) {
-        // Click event listener for mouse devices
         button.addEventListener('click', () => {
             this.toggleAudio();
         });
-
-        // Touch event listener for touchscreens devices
         button.addEventListener('touchstart', (event) => {
             event.preventDefault();
             this.toggleAudio();
-        }, { passive: true }); // Setting touch event listener to passive
+        }, { passive: true });
     }
 
+    // Toggles audio mute
     toggleAudio() {
         this.isMuted = !this.isMuted;
         this.backgroundMusic.setMute(this.isMuted);
 
-        // Toggle visibility of mute buttons
+        // Toggles visibility of mute buttons
         const audioOnBtn = document.getElementById("audioOnBtn");
         const audioOffBtn = document.getElementById("audioOffBtn");
         if (this.isMuted) {
