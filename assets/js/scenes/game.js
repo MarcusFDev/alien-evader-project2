@@ -197,89 +197,90 @@ export default class game extends Phaser.Scene {
             document.getElementById('score').textContent = this.score;
         });
 
-        // Sets up User keyboard control
-        const cursors = this.input.keyboard.createCursorKeys();
-        const keyMap = {
-            'LEFT': ['A', 'LEFT'],
-            'RIGHT': ['D', 'RIGHT']
-        };
+        if (screenWidth <= 800) {
+            // Touchscreen controls
+            const buttonOffsetX = 40; // Offset from the side of the canvas
+            const buttonOffsetY = 465; // Y position of the buttons
 
-        function handleKeyDown(direction) {
-            return () => {
-                try {
-                    const velocityX = direction === 'LEFT' ? -playerSpeed : playerSpeed;
-                    player.setVelocityX(velocityX * this.speedMultiplier);
-                } catch (error) {
-                    console.error('Error setting player velocity X:', error);
-                }
-            };
-        }
+            const leftButton = this.add.image(buttonOffsetX, buttonOffsetY, 'leftButton').setInteractive();
+            leftButton.setScale(0.15);
 
-        function handleKeyUp(direction) {
-            return () => {
-                try {
-                    const oppositeKeys = keyMap[direction];
-                    const oppositeKeyDown = oppositeKeys.some(key => cursors[key] && cursors[key].isDown);
-                    if (!oppositeKeyDown) {
-                        player.setVelocityX(0);
-                    }
-                } catch (error) {
-                    console.error('Error setting player velocity X:', error);
-                }
-            };
-        }
+            const rightButton = this.add.image(this.scale.width - buttonOffsetX, buttonOffsetY, 'rightButton').setInteractive();
+            rightButton.setScale(0.15);
 
-        this.input.keyboard.on('keydown-SPACE', () => {
-            if (isOnGround) {
-                player.setVelocityY(-jumpHeight);
-                isOnGround = false;
-
-            }
-        });
-
-        Object.keys(keyMap).forEach(direction => {
-            const keys = keyMap[direction];
-            keys.forEach(key => {
-                this.input.keyboard.on(`keydown-${key}`, handleKeyDown.call(this, direction));
-                this.input.keyboard.on(`keyup-${key}`, handleKeyUp.call(this, direction));
+        
+            // Add touch control for left movement
+            leftButton.on('pointerdown', () => {
+                player.setVelocityX(-playerSpeed * this.speedMultiplier);
             });
-        });
-
-        if (screenWidth <= 800 && screenHeight <= 600) {
-            // If User screen size is small (Tablet & below), create buttons touch screen buttons
-            const jumpButton = this.add.image(750, 550, 'jumpButton').setInteractive();
-            jumpButton.setScale(0.1);
-
-            const leftButton = this.add.image(50, 550, 'leftButton').setInteractive();
-            leftButton.setScale(0.1);
-
-            const rightButton = this.add.image(150, 550, 'rightButton').setInteractive();
-            rightButton.setScale(0.1);
-
-            // Add touch controls
-            jumpButton.on('pointerdown', () => {
-                if (isOnGround) {
+            leftButton.on('pointerup', () => {
+                player.setVelocityX(0);
+            });
+        
+            // Add touch control for right movement
+            rightButton.on('pointerdown', () => {
+                player.setVelocityX(playerSpeed * this.speedMultiplier);
+            });
+            rightButton.on('pointerup', () => {
+                player.setVelocityX(0);
+            });
+        
+            // Add touch control for jump (anywhere on the screen except buttons area)
+            this.input.on('pointerdown', (pointer) => {
+                const isOverButton = leftButton.getBounds().contains(pointer.x, pointer.y) ||
+                                     rightButton.getBounds().contains(pointer.x, pointer.y);
+                if (!isOverButton && isOnGround) {
                     player.setVelocityY(-jumpHeight);
                     isOnGround = false;
                 }
             });
 
-            leftButton.on('pointerdown', () => {
-                player.setVelocityX(-playerSpeed * this.speedMultiplier);
-            });
-            leftButton.on('pointerup', () => {
-                if (!rightButton.isDown) {
-                    player.setVelocityX(0);
+        } else {
+            // Keyboard controls
+            const cursors = this.input.keyboard.createCursorKeys();
+            const keyMap = {
+                'LEFT': ['A', 'LEFT'],
+                'RIGHT': ['D', 'RIGHT']
+            };
+        
+            function handleKeyDown(direction) {
+                return () => {
+                    try {
+                        const velocityX = direction === 'LEFT' ? -playerSpeed : playerSpeed;
+                        player.setVelocityX(velocityX * this.speedMultiplier);
+                    } catch (error) {
+                        console.error('Error setting player velocity X:', error);
+                    }
+                };
+            }
+        
+            function handleKeyUp(direction) {
+                return () => {
+                    try {
+                        const oppositeKeys = keyMap[direction];
+                        const oppositeKeyDown = oppositeKeys.some(key => cursors[key] && cursors[key].isDown);
+                        if (!oppositeKeyDown) {
+                            player.setVelocityX(0);
+                        }
+                    } catch (error) {
+                        console.error('Error setting player velocity X:', error);
+                    }
+                };
+            }
+        
+            this.input.keyboard.on('keydown-SPACE', () => {
+                if (isOnGround) {
+                    player.setVelocityY(-jumpHeight);
+                    isOnGround = false;
                 }
             });
-
-            rightButton.on('pointerdown', () => {
-                player.setVelocityX(playerSpeed * this.speedMultiplier);
-            });
-            rightButton.on('pointerup', () => {
-                if (!leftButton.isDown) {
-                    player.setVelocityX(0);
-                }
+        
+            Object.keys(keyMap).forEach(direction => {
+                const keys = keyMap[direction];
+                keys.forEach(key => {
+                    this.input.keyboard.on(`keydown-${key}`, handleKeyDown.call(this, direction));
+                    this.input.keyboard.on(`keyup-${key}`, handleKeyUp.call(this, direction));
+                });
             });
         }
 
