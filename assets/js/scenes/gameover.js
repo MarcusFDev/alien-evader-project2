@@ -14,7 +14,7 @@ export default class GameOver extends Phaser.Scene {
         this.load.image('gameoverscrmobile', 'assets/images/game-assets/gameovermobile.webp');
     }
 
-    // Creates game how to play scene
+    // Creates game over one scene
     create() {
         const screenWidth = window.innerWidth;
 
