@@ -60,7 +60,7 @@ export default class GameHowToPlay extends Phaser.Scene {
         this.background.x = width / 2;
         this.background.y = height / 2;
     }
-    // Sets up game menu elements
+    // Sets up how to play scene elements
     setupHowToPlay() {
         const elementsToHide = ['start-btn', 'gameHtp-btn', 'gameMenu-btn', 'gameRestart-btn', 'gameScore'];
         elementsToHide.forEach(element => {

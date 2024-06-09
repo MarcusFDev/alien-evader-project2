@@ -757,8 +757,8 @@ footer {
     }
 
     .gameOverScore {
-        top: 200px;
-        font-size: 45px;
+        top: 260px;
+        font-size: 25px;
     }
 
     .gameRestart-btn {
