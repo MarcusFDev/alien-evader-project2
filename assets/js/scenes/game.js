@@ -77,7 +77,8 @@ export default class game extends Phaser.Scene {
         const playerScale = isSmallScreen ? 0.09 : 0.1;
 
         // Adds the background image
-        this.add.image(0, 0, 'skyline').setOrigin(0, 0).setScale(backgroundScale);
+        const background = this.add.image(screenWidth / 2, screenHeight / 2, 'skyline').setOrigin(0.5);
+        background.setScale(backgroundScale);
 
         if (isSmallScreen) {
             // Adds the Alien spaceship image
