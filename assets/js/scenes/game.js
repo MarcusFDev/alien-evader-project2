@@ -61,22 +61,37 @@ export default class game extends Phaser.Scene {
         howToPlayDiv.classList.add('hidden');
 
         // Score Div shown on this scene
-
         const gameScoring = document.querySelector('[data-type="gameScore"]');
         gameScoring.classList.remove('hidden')
         gameScoring.classList.remove('gameOverScore');
 
+        // Check screen size
+        const screenWidth = this.scale.width;
+        const screenHeight = this.scale.height;
+        const isSmallScreen = screenWidth <= 560;
+
+        // Defines individual scale based on screen size
+        const backgroundScale = isSmallScreen ? 0.7 : 1;
+        const alienShipScale = isSmallScreen ? 0.3 : 0.5;
+        const platformScale = isSmallScreen ? 0.3 : 0.4;
+        const playerScale = isSmallScreen ? 0.09 : 0.1;
+
         // Adds the background image
-        this.add.image(0, 0, 'skyline').setOrigin(0, 0);
+        this.add.image(0, 0, 'skyline').setOrigin(0, 0).setScale(backgroundScale);
 
-        // Adds the Alien spaceship image
-        const alienShip = this.add.image(-200, 0, 'alienship').setOrigin(0, 0);
-        alienShip.setScale(0.5);
-
-        alienShip.setDepth(1);
-
+        if (isSmallScreen) {
+            // Adds the Alien spaceship image
+            const alienShip = this.add.image(-145, 0, 'alienship').setOrigin(0, 0);
+            alienShip.setScale(alienShipScale);
+            alienShip.setDepth(1);
+        } else {
+            // Adds the Alien spaceship image
+            const alienShip = this.add.image(-200, 0, 'alienship').setOrigin(0, 0);
+            alienShip.setScale(alienShipScale);
+            alienShip.setDepth(1);
+        }
         // Creates an array of building platform images
-        const platformImages = ['building1', 'building2', 'building3', 'building4', 'building5', 'building6', 'building7']; // Array for easy implementation of new images
+        const platformImages = ['building1', 'building2', 'building3', 'building4', 'building5', 'building6', 'building7'];
 
         // Creates the platforms group
         const platforms = this.physics.add.group({
@@ -85,25 +100,53 @@ export default class game extends Phaser.Scene {
             velocityX: -200, // Initial speed of platforms
         });
 
+        // Define the minimum Y position for platform spawning
+        const minYPosition = screenHeight + 0.02;
+
+        // Define the x increment for platforms
+        const platformXIncrement = isSmallScreen ? 600 : 800;
+
+        // Variable to hold the second platform spawned
+        let secondPlatform;
+
         // Creates game loop for platforms
         for (let i = 0; i < 999; ++i) {
-            const x = 800 * i; // Distance between buildings
-            const y = Phaser.Math.Between(750, 1050); // Randomized height of buildings
+            const x = platformXIncrement * i; // Distance between buildings
+            let y;
+
+            // For mobile screens, adjust the Y position of platform spawning
+            if (isSmallScreen) {
+                y = Phaser.Math.Between(minYPosition, screenHeight + 0.2); // Randomized height of buildings for mobile
+            } else {
+                y = Phaser.Math.Between(750, 1050); // Randomized height of buildings
+            }
 
             // Randomly select a platform image from array
             const randomImage = Phaser.Math.RND.pick(platformImages);
 
-            const platform = platforms.create(x, y, randomImage).setScale(0.4);
+            const platform = platforms.create(x, y, randomImage).setScale(platformScale);
 
             // Enables physics for the platforms
             this.physics.world.enable(platform);
             platform.body.allowGravity = false;
             platform.body.immovable = true;
+
+            // Save the second platform created
+            if (i === 1) {
+                secondPlatform = platform;
+            }
         }
 
-        // Creates the player character
-        let player = this.physics.add.sprite(500, 20, 'alien')
-            .setScale(0.1); // Player Character Size
+        // Checks if second platform exists and sets player position
+        let initialPlayerX = screenWidth / 3;
+        let initialPlayerY = screenHeight * 0.2;
+        if (secondPlatform) {
+            initialPlayerX = Math.min(secondPlatform.x, screenWidth - 100); // Spawns player on screen in view
+            initialPlayerY = secondPlatform.y - 500; // Value to place the player above the second platform
+        }
+
+        // Create player character using initialPlayerX and initialPlayerY
+        const player = this.physics.add.sprite(initialPlayerX, initialPlayerY, 'alien').setScale(playerScale);
 
         // Adjusts the player hitbox
         player.body.setSize(player.width * 0.8, player.height * 0.7);
@@ -116,10 +159,13 @@ export default class game extends Phaser.Scene {
         // Assign player to the class variable
         this.player = player;
 
+        // Set up the camera to follow the player
+        this.cameras.main.startFollow(this.player);
+        this.cameras.main.setBounds(0, 0, this.scale.width, this.scale.height);
+
         // Creates collider between platforms and player
         this.physics.add.collider(platforms, player, () => {
             isOnGround = true;
-
         });
 
         // Creates player movement
@@ -199,23 +245,16 @@ export default class game extends Phaser.Scene {
             });
         });
 
-        // Check screen size
-        const screenWidth = this.scale.width;
-        const screenHeight = this.scale.height;
-
         if (screenWidth <= 800 && screenHeight <= 600) {
             // If User screen size is small (Tablet & below), create buttons touch screen buttons
             const jumpButton = this.add.image(750, 550, 'jumpButton').setInteractive();
             jumpButton.setScale(0.1);
-            
 
             const leftButton = this.add.image(50, 550, 'leftButton').setInteractive();
             leftButton.setScale(0.1);
-            
 
             const rightButton = this.add.image(150, 550, 'rightButton').setInteractive();
             rightButton.setScale(0.1);
-            
 
             // Add touch controls
             jumpButton.on('pointerdown', () => {
@@ -242,9 +281,6 @@ export default class game extends Phaser.Scene {
                     player.setVelocityX(0);
                 }
             });
-        } else {
-            // For larger screens (e.g., desktop), no additional buttons are needed
-            // because keyboard controls are available.
         }
 
         // Set up event listener for jump sound mute/unmute button
@@ -259,8 +295,8 @@ export default class game extends Phaser.Scene {
                 audioOnBtn.classList.add("hidden");
                 audioOffBtn.classList.remove("hidden");
             } else {
-                audioOffBtn.classList.add("hidden");
-                audioOnBtn.classList.remove("hidden");
+                audioOffBtn.classList.add('hidden');
+                audioOnBtn.classList.remove('hidden');
             }
         });
 
@@ -276,7 +312,7 @@ export default class game extends Phaser.Scene {
             // If player touches Bottom of Screen, activates Game Over
             if (this.player.y > this.game.config.height) {
                 this.gameOver();
-                // If player touches Left Screen, activates Game Over Two   
+            // If player touches Left Screen, activates Game Over Two   
             } else if (this.player.x < 0) {
                 this.gameOverTwo();
             }
@@ -286,7 +322,6 @@ export default class game extends Phaser.Scene {
     }
 
     gameOver() {
-
         // Stops physics and player movement
         this.physics.pause();
         this.player.setVelocity(0, 0);
@@ -297,7 +332,6 @@ export default class game extends Phaser.Scene {
     }
 
     gameOverTwo() {
-
         // Stops physics and player movement
         this.physics.pause();
         this.player.setVelocity(0, 0);

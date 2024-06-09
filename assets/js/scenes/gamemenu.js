@@ -41,6 +41,7 @@ export default class gamemenu extends Phaser.Scene {
 
             const gameScoring = document.querySelector('[data-type="gameScore"]');
             gameScoring.classList.add('hidden');
+
         } else {
             // The Game Menu image
             const background = this.add.image(0, 0, 'gamemenuscr').setOrigin(0, 0);
