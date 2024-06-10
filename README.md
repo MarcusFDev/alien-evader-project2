@@ -37,13 +37,16 @@ The site has been themed alongside the game and is aimed to be responsive on all
      - [Site Content](#site-content)
      - [Site Design](#site-design)
 
-3. [Technology Used](#technology-used)
+3. [Project Notes](#project-notes)
+   - [GitHub Commits](github-commits)
+
+4. [Technology Used](#technology-used)
    - [Languages](#languages)
    - [Libraries](#libraries)
    - [Platforms](#platforms)
    - [Other Tools](#other-tools)
 
-4. [Testing](#testing)
+5. [Testing](#testing)
    - [Methods](#methods)
      - [Validation](#validation)
      - [General Testing](#general-testing)
@@ -51,13 +54,13 @@ The site has been themed alongside the game and is aimed to be responsive on all
      - [Known Bugs](#known-bugs)
      - [Fixed Bugs](#fixed-bugs)
 
-5. [Deployment](#deployment)
+6. [Deployment](#deployment)
    - [Github Deployment](#github-deployment)
      - [Github Preparation](#github-preparation)
      - [Github Instructions](#github-instructions)
      - [Cloning & Forking](#cloning--forking)
 
-6. [Credits and Contact](#credits-and-contact)
+7. [Credits and Contact](#credits-and-contact)
    - [Credits](#credits)
    - [Contact](#contact)
 
@@ -216,13 +219,13 @@ There are a large amount of custom made assets made for Alien Evader. To view th
 
 The Alien Evader game was created using the [Phaser](https://phaser.io) Framework. The Game is divided into multiple `scenes` and imported into the `<script.js>` file. Alien Evader uses `<div>` as buttons which have been styled using CSS & custom assets as images. 
 
-While an effort was made to have the game completely functional on all devices, unforeseen issues arose with the Phaser code causing the scene background images to not appear as they should and due to the problem not being fixable for the project deadline; the game may not yet be working as intended on Mobile and Tablet sized devices.
+An effort was made to have the game completely functional on all devices, after multiple bug fixes the game is indeed functional on most touch screen devices however there may still be some unforeseen quirks to certain sized phones & tablets.
 
 The Game Menu Scene
 
 - The Play button changes the `scene` and allows the user to begin the game.
 - The How to Play button sends the user to a new `scene` revealing a styled `<div>` providing instructions of how to play.
-- The Audio button switches on & off the music for the game, by default the audio is off. 
+- The Audio button switches on & off the music for the game, by default the audio is off.
 
 Regarding Audio, an attempt was made to give the jump an audio sound. Due to a bug causing the audio button not to function correctly with the jump sound in place, the jump sound was removed and pushed to Feature ideas. The jump sound was referenced in Credits.
 
@@ -233,7 +236,12 @@ The Game Scene
 - Users can control the alien with `A & D` or `Left & Right Arrow` keys and `Space` to Jump. 
 - Users are to jump across the buildings and not fall down. Two game over conditions exist, one for falling down between the buildings & one if you hit the left side of the canvas.
 - Buildings act as platforms, 7 variations of buildings were designed and randomly are created utilizing an array in `game.js`.
-- Score increases over time the longer the game is active and gives the user a reason to keep playing. 
+- Score increases over time the longer the game is active and gives the user a reason to keep playing.
+
+Mobile & Tablet Devices:
+
+- Left & Right arrow keys were implemented for touchscreen devices, to jump the user can tap anywher eon their screen. These are hidden by default and appear only on touchscreen sized devices.
+- Some settings were slightly tweaked to make the gameplay more enjoyable on small devices such as platform distance.
 
 ![Alien Evader Game image](assets/images/site-images/site-game-img.png)
 
@@ -262,7 +270,7 @@ It was intended to use [EmailJS](https://www.emailjs.com) to send the user an em
 
 ### Notice Message
 
-With the current unexpected issues with the Alien Evader game on Mobile & Tablet devices, and the solution being out of reach for the project deadline. The decision was made to create a Notice message for users on Mobile & Tablet devices, letting users be aware of the current issues with the functionality of the game on their device. 
+This notice message was implemented due to critical issues with the visuals of the game canvas on different sized devices. Since it's implementation many of the critical issues were resolved. However currently the message remains in the project until it can be refined and confirmed to be at a absolute equal standard to Desktop gameplay for every device size.
 
 - On the DOM load if the JavaScript detects a user is on a screen width of 800px or less, a `<div>` element will appear above the game container.
 - A dismiss button is provided to users to remove the message from the site.
@@ -302,6 +310,16 @@ With the current unexpected issues with the Alien Evader game on Mobile & Tablet
 - Intregrate a working version of EmailJS to send users an email of confirmation after they submitted a feedback forum.
 - Update the site with some more custom assets where appropriate.
 - Change social media links to real Alien Evader socials.
+
+
+# Project Notes
+
+## Github Commits
+
+For Alien Evader, some Github commits were larger than anticipated. The reason behind certain commits being very large was due to a large code refactoring later in the project timeline.
+
+This was for better code maintainability & readability in the `.js` files. A example of this being done can be found under the commit title "Change: Refactored game scene code, added credits." Here is a [link](https://github.com/MarcusFDev/alien-evader-project2/commit/de9d4e5001e6f44377c5003e2b5768c83435b14d) to the commit.
+
 
 # Technology Used
 
@@ -380,9 +398,12 @@ With the current unexpected issues with the Alien Evader game on Mobile & Tablet
 
 ### Known Bugs
 
-- Phaser Game Canvas not appropriately aligning background with screen width changes. Potentially the sizing of assets need to be changed within code & potentially new assets created for screen sizes specifically.
-- The Notice message on Mobile & Tablet devices when dismiss it hit, the game begins playing. 
-- Phaser event listenors potentially affecting other JavaScript on the page resulting unexpected outcomes/failures.
+- The Notice message on Mobile & Tablet devices when dismiss it hit, the game begins playing.
+- The toggle audio button sometimes not working upon scene changes, however not always.
+
+The Console warning "The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page." is created upon DOM load. This is a common quirk for many developers when working with the Phaser Library, relating to Google. Upon doing research it was decided attempting a work around fix wasn't time affective for the project deadline.
+
+As the warning does not noticibly affect the users experience it has made it into this version of the project.
 
 ### Fixed Bugs
 
@@ -401,6 +422,23 @@ With the current unexpected issues with the Alien Evader game on Mobile & Tablet
 - Resolved a issue that caused all buttons to be non functional on on touchscreen devices. Another Phaser related issue, updated to the most recent Phaser Framework which fixed the bug. 
 
 ![Phaser Version bug image](assets/images/site-images/site-phaserversionbug.png)
+
+- Resolved a critical set of issues resulting in Mobile & Tablet devices Game Canvas imagery not appearing as intended.
+
+![Small Device functionality image](assets/images/site-images/site-screensizefix.png)
+
+- Resolved multiple audio errors and unintended audio repeated overlaps with scene changes.
+
+![Audio code fixes image](assets/images/site-images/site-audioerrorfix.png)
+
+- Resolved a error that would be created when the Game Canvas and Game container would attempt to load on the `thankyou.html` page.
+
+![HTML page error image](assets/images/site-images/site-htmlerror.png)
+
+Other Fixed Bugs:
+
+- Cleared up multiple blank spaces in the code structure by refactoring all the `.js` file code.
+- Resolved some linter found warnings in multiple code files.
 
 # Deployment
 
