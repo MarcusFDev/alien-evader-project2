@@ -98,7 +98,7 @@ export default class GameMenu extends Phaser.Scene {
     }
 
     // Add event listeners for buttons
-addButtonEventListeners(button, sceneKey) {
+    addButtonEventListeners(button, sceneKey) {
     button.addEventListener('click', () => {
         this.scene.start(sceneKey);
     });
@@ -110,7 +110,7 @@ addButtonEventListeners(button, sceneKey) {
 
 
     // Add event listeners for audio toggle button
-addAudioToggleEventListeners(button) {
+    addAudioToggleEventListeners(button) {
     button.addEventListener('click', () => {
         this.toggleAudio();
     });
