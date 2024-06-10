@@ -101,9 +101,9 @@ export default class gameovertwo extends Phaser.Scene {
             button.addEventListener('touchstart', (event) => {
                 event.preventDefault(); // Prevents the default touch behavior
                 eventHandler();
-            }, { passive: true }); // Make the event listener passive
+            });
         }
-    }
+    }    
 
     setupAudioToggle() {
         // Selects the audio toggle buttons

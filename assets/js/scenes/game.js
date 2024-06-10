@@ -92,6 +92,15 @@ export default class game extends Phaser.Scene {
 
         // Add background music
         this.backgroundMusic = this.sound.add('backgroundMusic', { loop: true });
+
+        // Creates left canvas wall game ender
+        const leftWall = this.add.rectangle(0, 0, 1, this.scale.height, 0x000000).setOrigin(0, 0);
+        this.physics.add.existing(leftWall, true);
+
+        this.physics.add.collider(this.player, leftWall, () => {
+            // Call gameOverTwo method when player collides with left wall
+            this.gameOverTwo();
+        });
     }
 
     // Hides All HTML Buttons

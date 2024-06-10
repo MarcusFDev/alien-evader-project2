@@ -98,13 +98,14 @@ export default class GameOver extends Phaser.Scene {
     
             // Adds event listener for mouse clicks
             button.addEventListener('click', eventHandler);
+
             // Adds touchstart event listener for touch input
             button.addEventListener('touchstart', (event) => {
                 event.preventDefault(); // Prevents the default touch behavior
                 eventHandler();
-            }, { passive: true }); // Make the event listener passive
-        }
+            });
     }
+}
     
     setupAudioToggle() {
         // Selects the audio toggle buttons

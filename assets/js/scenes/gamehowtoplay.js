@@ -46,6 +46,9 @@ export default class GameHowToPlay extends Phaser.Scene {
         const howToPlayDiv = document.querySelector('[data-type="howtoplay-list"]');
         howToPlayDiv.classList.remove('hidden');
 
+        // Audio button toggle
+        this.setupAudioToggle();
+
         // Event listener for Go Back button
         gameGoBackButton.addEventListener('click', () => {
             this.goBackToMenu();
@@ -73,6 +76,38 @@ export default class GameHowToPlay extends Phaser.Scene {
             }
         });
     }
+
+    setupAudioToggle() {
+        // Selects the audio toggle buttons
+        const audioOnBtn = document.getElementById("audioOnBtn");
+        const audioOffBtn = document.getElementById("audioOffBtn");
+    
+        // Gets the game audio
+        const backgroundMusic = this.sound.get('backgroundMusic');
+    
+        if (audioOnBtn && audioOffBtn && backgroundMusic) {
+            // Adds event listener to the "audio on" button
+            audioOnBtn.addEventListener("click", () => {
+                // Mutes the background music
+                backgroundMusic.setMute(true);
+    
+                // Hides the "audio on" button and show the "audio off" button
+                audioOnBtn.classList.add("hidden");
+                audioOffBtn.classList.remove("hidden");
+            });
+    
+            // Adds event listener to the "audio off" button
+            audioOffBtn.addEventListener("click", () => {
+                // Unmutes the background music
+                backgroundMusic.setMute(false);
+    
+                // Hides the "audio off" button and show the "audio on" button
+                audioOffBtn.classList.add("hidden");
+                audioOnBtn.classList.remove("hidden");
+            });
+        }
+    }    
+
     // Goes back to Main Menu when called
     goBackToMenu() {
         console.log('Game Menu request detected');

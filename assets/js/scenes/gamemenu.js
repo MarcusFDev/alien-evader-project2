@@ -98,26 +98,27 @@ export default class GameMenu extends Phaser.Scene {
     }
 
     // Add event listeners for buttons
-    addButtonEventListeners(button, sceneKey) {
-        button.addEventListener('click', () => {
-            this.scene.start(sceneKey);
-        });
-        button.addEventListener('touchstart', (event) => {
-            event.preventDefault();
-            this.scene.start(sceneKey);
-        }, { passive: true });
-    }
+addButtonEventListeners(button, sceneKey) {
+    button.addEventListener('click', () => {
+        this.scene.start(sceneKey);
+    });
+    button.addEventListener('touchstart', (event) => {
+        event.preventDefault();
+        this.scene.start(sceneKey);
+    });
+}
+
 
     // Add event listeners for audio toggle button
-    addAudioToggleEventListeners(button) {
-        button.addEventListener('click', () => {
-            this.toggleAudio();
-        });
-        button.addEventListener('touchstart', (event) => {
-            event.preventDefault();
-            this.toggleAudio();
-        }, { passive: true });
-    }
+addAudioToggleEventListeners(button) {
+    button.addEventListener('click', () => {
+        this.toggleAudio();
+    });
+    button.addEventListener('touchstart', (event) => {
+        event.preventDefault();
+        this.toggleAudio();
+    });
+}
 
     // Toggles audio mute
     toggleAudio() {
