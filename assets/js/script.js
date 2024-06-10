@@ -1,3 +1,4 @@
+/* global $ */
 import Phaser from './lib/phaser.js';
 import gamemenu from './scenes/gamemenu.js';
 import gamehowtoplay from './scenes/gamehowtoplay.js';
@@ -42,9 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
             phaserGame.scale.resize(newWidth, newHeight);
             setCanvasStyles(gameCanvas);
         });
-
     } 
-    
+
     // Form functionality to send users to thankyou.html page
     $(document).ready(function () {
         $('#feedback-form').submit(function (event) {
@@ -73,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = "thankyou.html";
             console.log('This triggers if form is validated');
         }
-
         return isValid;
     }
 

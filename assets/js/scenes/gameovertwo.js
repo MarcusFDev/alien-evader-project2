@@ -95,7 +95,6 @@ export default class gameovertwo extends Phaser.Scene {
                 // Starts the scene
                 this.scene.start(sceneKey);
             };
-    
             // Adds event listener for mouse clicks
             button.addEventListener('click', eventHandler);
             // Adds touchstart event listener for touch input
@@ -105,7 +104,7 @@ export default class gameovertwo extends Phaser.Scene {
             }, { passive: true }); // Make the event listener passive
         }
     }
-    
+
     setupAudioToggle() {
         // Selects the audio toggle buttons
         const audioOnBtn = document.getElementById("audioOnBtn");
