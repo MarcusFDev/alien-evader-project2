@@ -55,6 +55,7 @@ The site has been themed alongside the game and is aimed to be responsive on all
    - [Github Deployment](#github-deployment)
      - [Github Preparation](#github-preparation)
      - [Github Instructions](#github-instructions)
+     - [Cloning & Forking](#cloning--forking)
 
 6. [Credits and Contact](#credits-and-contact)
    - [Credits](#credits)
@@ -419,6 +420,23 @@ Requirements:
 4. Under the Code and automation section scroll down and click on Pages.
 5. Select the Master Branch as the source and Confirm the selection.
 6. Wait a few minutes and the site should be live for viewing. See my own [right here.](https://marcusfdev.github.io/alien-evader-project2/)
+
+### Cloning & Forking
+
+If you wish to continue to develop the site further yourself you can chose to either clone or fork the Alien Evader Github respository.
+
+To Fork the project:
+
+1. Click the "Fork" button at the top right of the Alien Evader Github page.
+2. After that, navigate to your Github profile and find the forked repository.
+3. Copy the URL of your forked repository.
+4. Use a IDE such as [GitPod](https://www.gitpod.io) and create a new workspace, using the forked repository link copied.
+
+To Clone the project:
+
+1. Click the "Code" button at the top of the Alien Evader Github page.
+2. Copy the URL of the project repository provided.
+3. Use a IDE such as [GitPod](https://www.gitpod.io) and create a new workspace, using the cloned repository link.
 
 ## Credits and Contact
 
