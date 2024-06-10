@@ -92,7 +92,6 @@ export default class game extends Phaser.Scene {
 
         // Add background music
         this.backgroundMusic = this.sound.add('backgroundMusic', { loop: true });
-        this.backgroundMusic.play();
     }
 
     // Hides All HTML Buttons
@@ -286,6 +285,7 @@ export default class game extends Phaser.Scene {
     // Sets up Audio Toggle button
     setupAudioToggle() {
         const audioToggleBtn = document.querySelector('[data-type="audioToggle"]');
+        
         audioToggleBtn.addEventListener('click', () => {
             if (this.backgroundMusic.isPlaying) {
                 this.backgroundMusic.pause();
