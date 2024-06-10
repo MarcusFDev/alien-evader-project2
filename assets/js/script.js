@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('gameContainer');
     const gameCanvas = document.getElementById('gameCanvas');
 
+    // Only run the Phaser game initialization if the elements exist
     if (container && gameCanvas) {
-        // Ensure canvas has no margin or padding
+        console.log('Initializing Phaser game...');
         setCanvasStyles(gameCanvas);
 
         const containerWidth = container.clientWidth;
         const containerHeight = container.clientHeight;
 
-        // Declare the game variable in the outer scope
         let phaserGame = new Phaser.Game({
             type: Phaser.CANVAS,
             width: containerWidth,
@@ -36,20 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
             canvas: gameCanvas
         });
 
-        // Resize the game canvas when the window is resized
         window.addEventListener('resize', () => {
             const newWidth = container.clientWidth;
             const newHeight = container.clientHeight;
             phaserGame.scale.resize(newWidth, newHeight);
-
-            // Ensures canvas stays without margin or padding
             setCanvasStyles(gameCanvas);
         });
 
-    } else {
-        console.error('Game container or canvas element not found');
-    }
-
+    } 
+    
     // Form functionality to send users to thankyou.html page
     $(document).ready(function () {
         $('#feedback-form').submit(function (event) {

@@ -1,5 +1,7 @@
-import Phaser from '../lib/phaser.js'
+// Import Phaser library
+import Phaser from '../lib/phaser.js';
 
+// Defines the Game scene class
 export default class game extends Phaser.Scene {
 
     /** @type {Phaser.Physics.Arcade.Sprite} */
@@ -7,13 +9,16 @@ export default class game extends Phaser.Scene {
 
     score = 0;
     scoreText;
+    cursors;
+    speedMultiplier = 1;
 
-    cursors
-
+    // General Structure of "Alien Evader" Phaser Game was adapted from (https://blog.ourcade.co),
+    // Written & Published by Tommy Leung.
     constructor() {
-        super('game')
+        super('game');
     }
 
+    // Preloads game assets
     preload() {
         // Loads the game canvas background
         this.load.image('skyline', 'assets/images/game-assets/game-background.webp');
@@ -26,9 +31,9 @@ export default class game extends Phaser.Scene {
         this.load.image('building5', 'assets/images/game-assets/city-building5.webp');
         this.load.image('building6', 'assets/images/game-assets/city-building6.webp');
         this.load.image('building7', 'assets/images/game-assets/city-building7.webp');
-
+    
         // Loads the alien ship
-        this.load.image('alienship', 'assets/images/game-assets/alienship.webp')
+        this.load.image('alienship', 'assets/images/game-assets/alienship.webp');
 
         // Loads the player character
         this.load.image('alien', 'assets/images/game-assets/player-model.webp');
@@ -37,309 +42,305 @@ export default class game extends Phaser.Scene {
         this.load.image('jumpButton', 'assets/images/game-assets/up-arrowkey.webp');
         this.load.image('leftButton', 'assets/images/game-assets/left-arrowkey.webp');
         this.load.image('rightButton', 'assets/images/game-assets/right-arrowkey.webp');
+
+        // Loads the game background music
+        this.load.audio('backgroundMusic', 'assets/game-audio/game-background-sound.mp3');
     }
 
+    // Creates game how to play scene
     create() {
+        // Calls to Hide UI elements
+        this.hideUIElements();
 
-        // Hides Start & Menu buttons
-        const startButton = document.querySelector('[data-type="start-btn"]');
-        startButton.classList.add('hidden');
+        // Calls to Show score element
+        this.showScore();
 
-        const gameMenuButton = document.querySelector('[data-type="gameMenu-btn"]');
-        gameMenuButton.classList.add('hidden');
-
-        const gameHtpButton = document.querySelector('[data-type="gameHtp-btn"]');
-        gameHtpButton.classList.add('hidden');
-
-        const gameRestartButton = document.querySelector('[data-type="gameRestart-btn"]');
-        gameRestartButton.classList.add('hidden');
-
-        const gameGoBackButton = document.querySelector('[data-type="gameGoBack-btn"]');
-        gameGoBackButton.classList.add('hidden');
-
-        const howToPlayDiv = document.querySelector('[data-type="howtoplay-list"]');
-        howToPlayDiv.classList.add('hidden');
-
-        // Score Div shown on this scene
-        const gameScoring = document.querySelector('[data-type="gameScore"]');
-        gameScoring.classList.remove('hidden')
-        gameScoring.classList.remove('gameOverScore');
-
-        // Check screen size
+        // Checks user screen size
         const screenWidth = this.scale.width;
         const screenHeight = this.scale.height;
         const isSmallScreen = screenWidth <= 560;
 
-        // Defines individual scale based on screen size
+        // Defines scale of game sprites
         const backgroundScale = isSmallScreen ? 0.7 : 1;
         const alienShipScale = isSmallScreen ? 0.3 : 0.5;
         const platformScale = isSmallScreen ? 0.3 : 0.4;
         const playerScale = isSmallScreen ? 0.09 : 0.1;
 
-        // Adds the background image
+        // Calls to Add canvas background
+        this.addBackground(screenWidth, screenHeight, backgroundScale);
+
+        // Calls to Add alien ship
+        this.addAlienShip(alienShipScale, isSmallScreen);
+
+        // Calls to Create building platforms
+        this.createPlatforms(platformScale, isSmallScreen);
+
+        // Calls to Create player
+        this.createPlayer(screenWidth, screenHeight, playerScale);
+
+        // Calls to Set up player camera
+        this.setupCamera();
+
+        // Calls to Set up user control
+        this.setupControls(screenWidth, isSmallScreen);
+
+        // Calls to Set up speed multiplier
+        this.setupSpeedMultiplier();
+
+        // Calls to Set up audio toggle
+        this.setupAudioToggle();
+
+        // Add background music
+        this.backgroundMusic = this.sound.add('backgroundMusic', { loop: true });
+        this.backgroundMusic.play();
+    }
+
+    // Hides All HTML Buttons
+    hideUIElements() {
+        const elementsToHide = ['start-btn', 'gameMenu-btn', 'gameHtp-btn', 'gameRestart-btn', 'gameGoBack-btn', 'howtoplay-list'];
+        elementsToHide.forEach(element => {
+            const el = document.querySelector(`[data-type="${element}"]`);
+            el.classList.add('hidden');
+        });
+    }
+
+    // Shows Game Score Div
+    showScore() {
+        const gameScoring = document.querySelector('[data-type="gameScore"]');
+        gameScoring.classList.remove('hidden', 'gameOverScore');
+    }
+
+    // Sets up Canvas Background position
+    addBackground(screenWidth, screenHeight, scale) {
         const background = this.add.image(screenWidth / 2, screenHeight / 2, 'skyline').setOrigin(0.5);
-        background.setScale(backgroundScale);
+        background.setScale(scale);
+    }
 
-        if (isSmallScreen) {
-            // Adds the Alien spaceship image
-            const alienShip = this.add.image(-145, 0, 'alienship').setOrigin(0, 0);
-            alienShip.setScale(alienShipScale);
-            alienShip.setDepth(1);
-        } else {
-            // Adds the Alien spaceship image
-            const alienShip = this.add.image(-200, 0, 'alienship').setOrigin(0, 0);
-            alienShip.setScale(alienShipScale);
-            alienShip.setDepth(1);
-        }
-        // Creates an array of building platform images
-        const platformImages = ['building1', 'building2', 'building3', 'building4', 'building5', 'building6', 'building7'];
+    // Sets up Alien Ship sprite position
+    addAlienShip(scale, isSmallScreen) {
+        const x = isSmallScreen ? -145 : -200;
+        const alienShip = this.add.image(x, 0, 'alienship').setOrigin(0, 0);
+        alienShip.setScale(scale);
+        alienShip.setDepth(1);
+    }
 
-        // Creates the platforms group
+    // Sets up Building Platform properties
+    createPlatforms(scale, isSmallScreen) {
         const platforms = this.physics.add.group({
             allowGravity: false,
             immovable: true,
-            velocityX: -200, // Initial speed of platforms
+            velocityX: -200,
         });
 
-        // Define the minimum Y position for platform spawning
+        // Generates platform spawning positions
+        const screenHeight = this.scale.height;
         const minYPosition = screenHeight + 0.02;
-
-        // Define the x increment for platforms
         const platformXIncrement = isSmallScreen ? 600 : 800;
+        const platformImages = ['building1', 'building2', 'building3', 'building4', 'building5', 'building6', 'building7'];
 
-        // Variable to hold the second platform spawned
-        let secondPlatform;
-
-        // Creates game loop for platforms
         for (let i = 0; i < 999; ++i) {
-            const x = platformXIncrement * i; // Distance between buildings
-            let y;
+            const x = platformXIncrement * i;
+            const y = isSmallScreen ? Phaser.Math.Between(minYPosition, screenHeight + 0.2) : Phaser.Math.Between(750, 1050);
 
-            // For mobile screens, adjust the Y position of platform spawning
-            if (isSmallScreen) {
-                y = Phaser.Math.Between(minYPosition, screenHeight + 0.2); // Randomized height of buildings for mobile
-            } else {
-                y = Phaser.Math.Between(750, 1050); // Randomized height of buildings
-            }
-
-            // Randomly select a platform image from array
+            // Generates random platform images
             const randomImage = Phaser.Math.RND.pick(platformImages);
-
-            const platform = platforms.create(x, y, randomImage).setScale(platformScale);
-
-            // Enables physics for the platforms
+            const platform = platforms.create(x, y, randomImage).setScale(scale);
             this.physics.world.enable(platform);
             platform.body.allowGravity = false;
             platform.body.immovable = true;
-
-            // Save the second platform created
-            if (i === 1) {
-                secondPlatform = platform;
-            }
         }
 
-        // Checks if second platform exists and sets player position
-        let initialPlayerX = screenWidth / 3;
-        let initialPlayerY = screenHeight * 0.2;
-        if (secondPlatform) {
-            initialPlayerX = Math.min(secondPlatform.x, screenWidth - 100); // Spawns player on screen in view
-            initialPlayerY = secondPlatform.y - 500; // Value to place the player above the second platform
-        }
+        this.platforms = platforms;
+    }
 
-        // Create player character using initialPlayerX and initialPlayerY
-        const player = this.physics.add.sprite(initialPlayerX, initialPlayerY, 'alien').setScale(playerScale);
+    // Generates Player position
+    createPlayer(screenWidth, screenHeight, scale) {
+        const initialPlayerX = screenWidth / 3;
+        const initialPlayerY = screenHeight * 0.2;
+        this.player = this.physics.add.sprite(initialPlayerX, initialPlayerY, 'alien').setScale(scale);
 
-        // Adjusts the player hitbox
-        player.body.setSize(player.width * 0.8, player.height * 0.7);
-        player.body.setOffset(player.width * 0.1, player.height * 0.1);
+        // Creates Player character properties
+        this.player.body.setSize(this.player.width * 0.8, this.player.height * 0.7);
+        this.player.body.setOffset(this.player.width * 0.1, this.player.height * 0.1);
+        this.player.body.setGravityY(500);
+        this.player.setBounce(0.2);
 
-        // Adjusts player physics
-        player.body.setGravityY(500);
-        player.setBounce(0.2);
+        // Establishes collision with platforms
+        this.physics.add.collider(this.platforms, this.player, () => {
+            this.isOnGround = true;
+        });
+    }
 
-        // Assign player to the class variable
-        this.player = player;
-
-        // Set up the camera to follow the player
+    // Sets up Player Camera properties
+    setupCamera() {
         this.cameras.main.startFollow(this.player);
         this.cameras.main.setBounds(0, 0, this.scale.width, this.scale.height);
+    }
 
-        // Creates collider between platforms and player
-        this.physics.add.collider(platforms, player, () => {
-            isOnGround = true;
-        });
-
-        // Creates player movement
+    // Sets up Player control properties
+    setupControls(screenWidth) {
         const playerSpeed = 100;
         const jumpHeight = 500;
-        let isOnGround = true;
+        this.isOnGround = true;
 
-        // Increase speed multiplier every 15 seconds
-        this.speedMultiplier = 1;
+        // Determines to use Touch Control or Keyboard control based on screen size
+        if (screenWidth <= 800) {
+            this.setupTouchscreenControls(playerSpeed, jumpHeight);
+        } else {
+            this.setupKeyboardControls(playerSpeed, jumpHeight);
+        }
+    }
 
+    // Sets up Touch control settings
+    setupTouchscreenControls(playerSpeed, jumpHeight) {
+        const buttonOffsetX = 40;
+        const buttonOffsetY = 465;
+
+        // Adds Left Touch button to screen.
+        const leftButton = this.add.image(buttonOffsetX, buttonOffsetY, 'leftButton').setInteractive();
+        leftButton.setScale(0.15);
+
+        // Adds Right Touch button to screen.
+        const rightButton = this.add.image(this.scale.width - buttonOffsetX, buttonOffsetY, 'rightButton').setInteractive();
+        rightButton.setScale(0.15);
+
+        // Detects touch input for Left button and calculates movement
+        leftButton.on('pointerdown', () => {
+            this.player.setVelocityX(-playerSpeed * this.speedMultiplier);
+        });
+        // Detects end of touch input for Left button and stops movement
+        leftButton.on('pointerup', () => {
+            this.player.setVelocityX(0);
+        });
+
+        // Detects touch input for Right button and calculates movement
+        rightButton.on('pointerdown', () => {
+            this.player.setVelocityX(playerSpeed * this.speedMultiplier);
+        });
+        // Detects end of touch input for Right button and stops movement
+        rightButton.on('pointerup', () => {
+            this.player.setVelocityX(0);
+        });
+
+        // Detects touch input for jumping on screen & not on Left & Right buttons.
+        this.input.on('pointerdown', (pointer) => {
+            const isOverButton = leftButton.getBounds().contains(pointer.x, pointer.y) ||
+                rightButton.getBounds().contains(pointer.x, pointer.y);
+            if (!isOverButton && this.isOnGround) {
+                this.player.setVelocityY(-jumpHeight);
+                this.isOnGround = false;
+            }
+        });
+    }
+
+    // Sets up Keyboard control settings & keymap
+    setupKeyboardControls(playerSpeed, jumpHeight) {
+        const cursors = this.input.keyboard.createCursorKeys();
+        const keyMap = {
+            'LEFT': ['A', 'LEFT'],
+            'RIGHT': ['D', 'RIGHT']
+        };
+
+        Object.keys(keyMap).forEach(direction => {
+            const keys = keyMap[direction];
+            keys.forEach(key => {
+                // Detects user key input and calculates player movement
+                this.input.keyboard.on(`keydown-${key}`, () => {
+                    const velocityX = direction === 'LEFT' ? -playerSpeed : playerSpeed;
+                    this.player.setVelocityX(velocityX * this.speedMultiplier);
+                });
+                // Detects end of key input and ends player movement
+                this.input.keyboard.on(`keyup-${key}`, () => {
+                    const oppositeKeys = keyMap[direction];
+                    const oppositeKeyDown = oppositeKeys.some(k => cursors[k] && cursors[k].isDown);
+                    if (!oppositeKeyDown) {
+                        this.player.setVelocityX(0);
+                    }
+                });
+            });
+        });
+
+        // Detects spacebar input and checks if has collision with platform
+        this.input.keyboard.on('keydown-SPACE', () => {
+            if (this.isOnGround) {
+                this.player.setVelocityY(-jumpHeight);
+                this.isOnGround = false;
+            }
+        });
+    }
+
+    // Sets up Game Speed multiplier for platform spawning
+    setupSpeedMultiplier() {
         this.time.addEvent({
             delay: 15000,
             loop: true,
             callback: () => {
                 this.speedMultiplier += 0.2;
-                console.log('Speed Multiplier', this.speedMultiplier);
-
-                // Adjusts the speed of each platform based on the speed multiplier
-                platforms.children.iterate((platform) => {
+                this.platforms.children.iterate((platform) => {
                     platform.body.velocity.x = -200 * this.speedMultiplier;
                 });
-
             },
         });
-
-        // Creates a Event listener for reset score events
-        this.events.on('resetScore', () => {
-            this.score = 0;
-            document.getElementById('score').textContent = this.score;
-        });
-
-        if (screenWidth <= 800) {
-            // Touchscreen controls
-            const buttonOffsetX = 40; // Offset from the side of the canvas
-            const buttonOffsetY = 465; // Y position of the buttons
-
-            const leftButton = this.add.image(buttonOffsetX, buttonOffsetY, 'leftButton').setInteractive();
-            leftButton.setScale(0.15);
-
-            const rightButton = this.add.image(this.scale.width - buttonOffsetX, buttonOffsetY, 'rightButton').setInteractive();
-            rightButton.setScale(0.15);
-
-        
-            // Add touch control for left movement
-            leftButton.on('pointerdown', () => {
-                player.setVelocityX(-playerSpeed * this.speedMultiplier);
-            });
-            leftButton.on('pointerup', () => {
-                player.setVelocityX(0);
-            });
-        
-            // Add touch control for right movement
-            rightButton.on('pointerdown', () => {
-                player.setVelocityX(playerSpeed * this.speedMultiplier);
-            });
-            rightButton.on('pointerup', () => {
-                player.setVelocityX(0);
-            });
-        
-            // Add touch control for jump (anywhere on the screen except buttons area)
-            this.input.on('pointerdown', (pointer) => {
-                const isOverButton = leftButton.getBounds().contains(pointer.x, pointer.y) ||
-                                     rightButton.getBounds().contains(pointer.x, pointer.y);
-                if (!isOverButton && isOnGround) {
-                    player.setVelocityY(-jumpHeight);
-                    isOnGround = false;
-                }
-            });
-
-        } else {
-            // Keyboard controls
-            const cursors = this.input.keyboard.createCursorKeys();
-            const keyMap = {
-                'LEFT': ['A', 'LEFT'],
-                'RIGHT': ['D', 'RIGHT']
-            };
-        
-            function handleKeyDown(direction) {
-                return () => {
-                    try {
-                        const velocityX = direction === 'LEFT' ? -playerSpeed : playerSpeed;
-                        player.setVelocityX(velocityX * this.speedMultiplier);
-                    } catch (error) {
-                        console.error('Error setting player velocity X:', error);
-                    }
-                };
-            }
-        
-            function handleKeyUp(direction) {
-                return () => {
-                    try {
-                        const oppositeKeys = keyMap[direction];
-                        const oppositeKeyDown = oppositeKeys.some(key => cursors[key] && cursors[key].isDown);
-                        if (!oppositeKeyDown) {
-                            player.setVelocityX(0);
-                        }
-                    } catch (error) {
-                        console.error('Error setting player velocity X:', error);
-                    }
-                };
-            }
-        
-            this.input.keyboard.on('keydown-SPACE', () => {
-                if (isOnGround) {
-                    player.setVelocityY(-jumpHeight);
-                    isOnGround = false;
-                }
-            });
-        
-            Object.keys(keyMap).forEach(direction => {
-                const keys = keyMap[direction];
-                keys.forEach(key => {
-                    this.input.keyboard.on(`keydown-${key}`, handleKeyDown.call(this, direction));
-                    this.input.keyboard.on(`keyup-${key}`, handleKeyUp.call(this, direction));
-                });
-            });
-        }
-
-        // Set up event listener for jump sound mute/unmute button
-        const jumpAudioToggleBtn = document.querySelector('[data-type="audioToggle"]');
-        jumpAudioToggleBtn.addEventListener('click', () => {
-            this.isJumpMuted = !this.isJumpMuted;
-
-            // Toggle mute/unmute button visibility
-            const audioOnBtn = document.getElementById("audioOnBtn");
-            const audioOffBtn = document.getElementById("audioOffBtn");
-            if (this.isJumpMuted) {
-                audioOnBtn.classList.add("hidden");
-                audioOffBtn.classList.remove("hidden");
-            } else {
-                audioOffBtn.classList.add('hidden');
-                audioOnBtn.classList.remove('hidden');
-            }
-        });
-
     }
 
-    update() {
+    // Sets up Audio Toggle button
+    setupAudioToggle() {
+        const audioToggleBtn = document.querySelector('[data-type="audioToggle"]');
+        audioToggleBtn.addEventListener('click', () => {
+            if (this.backgroundMusic.isPlaying) {
+                this.backgroundMusic.pause();
+            } else {
+                this.backgroundMusic.resume();
+            }
+    
+            // Toggles the Audio to show Mute or unMute button
+            const audioOnBtn = document.getElementById("audioOnBtn");
+            const audioOffBtn = document.getElementById("audioOffBtn");
+            if (this.backgroundMusic.isPlaying) {
+                audioOffBtn.classList.add("hidden");
+                audioOnBtn.classList.remove("hidden");
+            } else {
+                audioOnBtn.classList.add('hidden');
+                audioOffBtn.classList.remove('hidden');
+            }
+        });
+    }    
 
+    // Sets up built in Phaser method which updates scene
+    update() {
+        // Calculates user score while game scene is running
         if (this.player) {
             const incrementValue = 0.01;
             this.score += incrementValue;
             document.getElementById('score').textContent = Math.floor(this.score);
 
-            // If player touches Bottom of Screen, activates Game Over
-            if (this.player.y > this.game.config.height) {
+            if (this.player.y > this.game.config.height || this.player.x < 0) {
                 this.gameOver();
-            // If player touches Left Screen, activates Game Over Two   
-            } else if (this.player.x < 0) {
-                this.gameOverTwo();
             }
-
         }
-
     }
 
+    // Sets up game scene switch to gameOver scene
     gameOver() {
+        // Stop background music
+        if (this.backgroundMusic) {
+            this.backgroundMusic.stop();
+        }
         // Stops physics and player movement
         this.physics.pause();
         this.player.setVelocity(0, 0);
-
-        // Transition to gameover,js scene
-        console.log('Game Over detected loading scene...')
         this.scene.start('game-over');
     }
 
+    // Sets up game scene switch to gameOverTwo scene
     gameOverTwo() {
+        // Stop background music
+        if (this.backgroundMusic) {
+            this.backgroundMusic.stop();
+        }
         // Stops physics and player movement
         this.physics.pause();
         this.player.setVelocity(0, 0);
-
-        // Transition to gameover,js scene
-        console.log('Game Over Two detected loading scene...')
         this.scene.start('game-over-two');
     }
 }

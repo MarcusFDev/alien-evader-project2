@@ -3,6 +3,9 @@ import Phaser from '../lib/phaser.js';
 
 // Defines the game menu scene class
 export default class GameMenu extends Phaser.Scene {
+
+    // General Structure of "Alien Evader" Phaser Game was adapted from (https://blog.ourcade.co),
+    // Written & Published by Tommy Leung.
     constructor() {
         super('game-menu');
         this.backgroundMusic = null;

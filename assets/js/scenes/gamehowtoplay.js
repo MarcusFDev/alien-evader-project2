@@ -3,6 +3,9 @@ import Phaser from '../lib/phaser.js';
 
 // Defines the GameHowtoPlay scene class
 export default class GameHowToPlay extends Phaser.Scene {
+
+    // General Structure of "Alien Evader" Phaser Game was adapted from (https://blog.ourcade.co),
+    // Written & Published by Tommy Leung.
     constructor() {
         super('game-htp');
     }
@@ -10,7 +13,7 @@ export default class GameHowToPlay extends Phaser.Scene {
     // Preloads game assets
     preload() {
         this.load.image('gamehtpscr', 'assets/images/game-assets/howtoplay-scene-img.webp');
-        this.load.image('gamehtpscrtwo', 'assets/images/game-assets/howtoplaymobile.webp')
+        this.load.image('gamehtpscrtwo', 'assets/images/game-assets/howtoplaymobile.webp');
     }
 
     // Creates game how to play scene
